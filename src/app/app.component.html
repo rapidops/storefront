@@ -5,14 +5,14 @@
             <div class="container">
                 <vsf-mobile-menu-toggle></vsf-mobile-menu-toggle>
                 <a [routerLink]="['/']" class="logo-link d-none d-md-inline-block ">
-                    RapidShop
+                    <img src="assets/images/rapidshop-logo@2x.png" alt="">
                 </a>
                 <div class="flex-grow-1 d-none d-sm-block"></div>
                 <vsf-product-search-bar class="flex-grow-1"></vsf-product-search-bar>
                 <vsf-account-link class="mr-2"></vsf-account-link>
                 <vsf-cart-toggle (toggle)="openCartDrawer()"></vsf-cart-toggle>
             </div>
-            <vsf-collections-menu></vsf-collections-menu>
+            <div class="menu-main"><vsf-collections-menu></vsf-collections-menu></div>
         </div>
     </vsf-layout-header>
     <vsf-collections-menu-mobile [visible]="mobileNavVisible$ | async"></vsf-collections-menu-mobile>

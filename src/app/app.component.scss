@@ -1,5 +1,5 @@
 .header {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #fff;
     border-bottom: 1px solid #e9ecef;
 
     > .container {
@@ -12,7 +12,10 @@
 .logo-link {
     display: flex;
     align-items: center;
-
+    width: 183px;
+        img{
+            max-width: 100%;
+            }
     img.logo {
         max-height: 50px;
     }

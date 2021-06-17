@@ -10,7 +10,8 @@ button.btn {
 
 .badge.qty-indicator {
     position: absolute;
-    right: -2px;
+    right: -8px;
+    top:-6px;
 
     &.cart-changed {
         background-color: $warning;

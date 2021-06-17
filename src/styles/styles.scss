@@ -93,6 +93,27 @@ vsf-account-link{
 
 .product-card{}
 .product-list vsf-product-card .product-card{border-right: 1px solid #e8e8e8; padding: 0 20px 0 0;}
-vsf-home-page .product-list vsf-product-card:nth-child(5n+5) .product-card{ border-right: none;}
+vsf-home-page .product-list vsf-product-card:nth-child(6n+6) .product-card{ border-right: none;}
 .m-t-lg{margin-top: 50px;}
-vsf-product-list .product-list vsf-product-card:nth-child(4n+4) .product-card{ border-right: none;}
+vsf-product-list .product-list vsf-product-card:nth-child(5n+5) .product-card{ border-right: none;}
+
+
+@media screen and (max-width: 2500px) and (min-width: 1920px) {
+    .container{max-width:1800px; }
+
+}
+
+@media screen and (max-width: 1919px) and (min-width: 1520px) {
+    .container{max-width:1480px; width: 1480px; }
+}
+
+@media screen and (max-width:1519px) {
+    .container{max-width: 1200px; width: 1200px;}
+}
+@media screen and (max-width:1199px){
+    .container{ max-width: 1000px; width: 1000px;}
+    .editor-header .pageName{width: 30%;}
+}
+@media screen and (max-width:1023px){
+    .container{ max-width: 100%; width: 100%;}
+}

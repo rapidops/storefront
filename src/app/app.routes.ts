@@ -25,4 +25,8 @@ export const routes: Route[] = [
         path: 'checkout',
         loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule),
     },
+    {
+        path: 'page',
+        loadChildren: () => import('./page/page.module').then(m => m.PageModule)
+    },
 ];

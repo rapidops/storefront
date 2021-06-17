@@ -1,0 +1,82 @@
+<div class="container">
+  <hts-main-loader *ngIf="showLoader" id="loader-div"></hts-main-loader>
+  <!--page not found-->
+  <section class="page-not-found-page" *ngIf="pageNotFound">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-not-found-main">
+          <a href="javascript:void(0);"><img src="assets/images/grocery_bag_404.png" alt="Logo"></a>
+          <h2>404</h2>
+          <span>Page not found. Sorry we couldn't find the page you were looking for.</span>
+          <a href="javascript:void(0);" class="btn btn-secondary" routerLink="/">Go Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div *ngIf="!pageNotFound">
+    <!--breadcrumbs-->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <span><a href="javascript:void(0);" [routerLink]="['/','store', storeId]">Shop Home</a></span>
+        </li>
+        <li class="breadcrumb-item" [ngClass]="{'active': !selectedCampaign.id}">
+          <span *ngIf="selectedCampaign.id"><a href="javascript:void(0);"
+          (click)="redirect()">{{pageName}}</a></span>
+          <span *ngIf="!selectedCampaign.id">{{pageName}}</span>
+        </li>
+        <li class="breadcrumb-item active" *ngIf="selectedCampaign.id" >
+          <span>{{selectedCampaign.name }}</span>
+        </li>
+      </ol>
+    </nav>
+
+    <!--campaign filters-->
+    <div class="campaign-page-main">
+      <div class="dropdown shop-by-category shop-by-category-mobile" *ngIf="isMobile">
+        <button class="btn btn-secondary dropdown-toggle" type="button"
+                id="dropdownMenuForMobile" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          <span class="icon"></span>{{pageName}}
+        </button>
+        <div class="dropdown-menu shop-by-category-options" aria-labelledby="dropdownMenuForMobile">
+          <a *ngFor="let campaign of allCampaigns" class="dropdown-item" (click)="redirectToCampaign(campaign)">
+            {{campaign.name}}
+          </a>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-lg-2 col-md-3" *ngIf="this.pageTemplate && pageTemplate.TemplateName === 'Campaign Sets'">
+        <div class="sidefilter">
+          <div class="shop-category-list" *ngIf="pageName">
+            <a href="javascript:void(0);" class="sidefilter-title" data-toggle="collapse" data-target="#collapseOne" >{{pageName}}<span class="icon"></span></a>
+            <div class="shop-category-list-inner">
+              <perfect-scrollbar style="position: relative; max-height: 300px;">
+                <ul id="collapseOne" class="collapse show">
+                  <li *ngFor="let campaign of allCampaigns" [ngClass]="{'active': campaign &&  campaign.id == selectedCampaign.id}" title="{{'View ' + campaign.name + ' Campaign'}}">
+                    <a href="javascript:void(0);" (click)="redirectToCampaign(campaign)" *ngIf="campaign">{{campaign.name}}</a>
+                  </li>
+                </ul>
+              </perfect-scrollbar>
+            </div>
+          </div>
+          <!--product Filter -->
+        </div>
+      </div>
+      <div id="_ht-container" *ngIf="pageContent" [ngClass]="{'col-lg-7 col-md-9' : this.pageTemplate && pageTemplate.TemplateName === 'Campaign Sets', 'col-lg-12 col-md-12 RO-HT-templates': this.pageTemplate && pageTemplate.TemplateName !== 'Campaign Sets'}">
+      <div [innerHTML]="pageContent | safeHtml"></div>
+      </div>
+      <div class="col-lg-3 col-md-12 col-sm-12" *ngIf="this.pageTemplate && pageTemplate.TemplateName === 'Campaign Sets'">
+        <div class="ad desktop-ad-a" *ngIf="displayDesktopAdvertise" data-slotId="347" data-plat="dep" data-page="3"  data-position="1" data-tile="1"><img src="assets/images/ad-1.jpg" alt="Ads Banner"></div>
+        <div class="ad desktop-ad-b" *ngIf="displayDesktopAdvertise" data-slotId="350" data-plat="dep" data-page="3"  data-position="2" data-tile="2"><img src="assets/images/ad-2.jpg" alt="Ads Banner"></div>
+        <div class="ad tablet-ad-a" *ngIf="displayTabletAdvertise" data-slotId="351" data-plat="dep" data-page="3"  data-position="1" data-tile="1"></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

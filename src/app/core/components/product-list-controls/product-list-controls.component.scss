@@ -5,6 +5,9 @@
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: column;
+    background: #f6f6f6;
+    border-radius: 8px;
+    padding: 0 15px 15px;
 }
 
 .filters-title {
@@ -74,4 +77,5 @@ button.facet-name {
         }
     }
 }
+
 

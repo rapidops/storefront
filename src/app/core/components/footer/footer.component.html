@@ -1,0 +1,62 @@
+<footer>
+  <div class="footer-top">
+    <div class="footer-top-main clearfix">
+      <div class="container">
+        <div class="footer-menus">
+          <div class="footer-top-menu clearfix">
+            <span *ngFor="let footer of footerData">
+            <div [ngClass]="[footer.item.isIconizedMenu?'iconized-menu':'' , footer.item.isIconizedMenu&&!footer.item.name ? 'no-arrow':'']"
+                 class="footer_box" >
+              <h5 title="{{footer.item.name}}">{{footer.item.name}}</h5>
+              <ul class="footer-content clearfix">
+                <!--class="<%= item.item.hideInDesktop?'hidden-sm hidden-md hidden-lg':'' %> <%= item.item.hideInMobile?'hidden-xs':'' %>"-->
+                <span *ngFor="let footerChildren of footer.children">
+          <li [ngClass]="[footerChildren.item.hideInDesktop ? 'd-sm-none d-md-none d-lg-none':'', footerChildren.item.hideInMobile?'d-xs-none':''] ">
+             <a href="{{footerChildren.item.link}}"
+                target="{{footerChildren.item.target}}"
+                title="{{footerChildren.item.name}}"
+                [ngClass]="[footerChildren.item.isLinkNeedToTrack ? 'track-click':'']">
+
+              <img *ngIf="footer.item.isIconizedMenu && footerChildren.item.img" src="{{footerChildren.item.img}}"
+                   alt="{{footerChildren.item.name}}">
+              <span *ngIf="( !footer.item.isIconizedMenu) || (footer.item.isIconizedMenu && !footerChildren.item.img) ">{{footerChildren.item.name}}</span>
+            </a>
+          </li>
+        </span>
+
+                <!--<li class="" *ngIf="!footer.item.isIconizedMenu"><a href="{{footerChildren.item.link}}" title="{{footerChildren.item.name}}" target="{{footer.item.target}}">{{footerChildren.item.name}}</a></li>-->
+                <!--<li class="" *ngIf="footer.item.isIconizedMenu"><a href="{{footerChildren.item.link}}" title="{{footerChildren.item.name}}" target="{{footer.item.target}}"><img *ngIf="footerChildren.item.img" src="{{footerChildren.item.img}}" alt="{{footerChildren.item.name}}"></a></li>-->
+              </ul>
+            </div>
+            </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-text">
+        <p>To save time, Harris Teeter offers a quick and efficient online shopping service called ExpressLane.
+          Shop from thousands of items available at your local Harris Teeter using our website or mobile app to begin your order.
+          Once your order is placed, your local store’s team of Personal Shoppers will shop and prepare your order for pickup or delivery at your selected time.</p>
+        <p>
+          <span *ngIf="footerTextExpanded">Shop Harris Teeter ExpressLane online or through our mobile app when it is convenient for you.
+            Select your local Harris Teeter, build your shopping cart and choose a pickup or delivery time that is convenient for you.
+            We’ll have your order ready for pickup or deliver it right to your doorstep.
+            If you are a first-time ExpressLane shopper, the $4.95 shopping fee will be waived.
+            Once your order is ready, your Personal Shopper will call and notify you.</span>
+          <a href="javascript:void(0)"><span *ngIf="!footerTextExpanded" (click)="this.footerTextExpanded = true">(Show More)</span>
+            <span *ngIf="footerTextExpanded" (click)="this.footerTextExpanded = false"> (Show Less)</span>
+          </a>
+        </p>
+      </div>
+      <div class="copyright-text">
+        <p> Copyright 2019 Harris Teeter, LLC. All Rights Reserved.v1.67.0</p>
+      </div>
+      <div class="toparrow"><a title="Goto top" class="top-link-icon btn-top-link" href="javascript:void(0)" (click)="goToTop()">Goto
+        Top</a></div>
+    </div>
+  </div>
+</footer>

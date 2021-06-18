@@ -20,6 +20,7 @@ import { CartToggleComponent } from './components/cart-toggle/cart-toggle.compon
 import { CollectionBreadcrumbsComponent } from './components/collection-breadcrumbs/collection-breadcrumbs.component';
 import { CollectionsMenuMobileComponent } from './components/collections-menu-mobile/collections-menu-mobile.component';
 import { CollectionsMenuComponent } from './components/collections-menu/collections-menu.component';
+import {DummyProductListComponent} from './components/dummy-product-list/dummy-product-list.component';
 import { FooterComponent} from './components/footer/footer.component';
 import { LayoutFooterComponent } from './components/layout/layout-footer.component';
 import { LayoutHeaderComponent } from './components/layout/layout-header.component';
@@ -51,6 +52,7 @@ const CORE_COMPONENTS = [
     ProductListControlsComponent,
     ProductSearchBarComponent,
     AssetGalleryComponent,
+    DummyProductListComponent
 ];
 
 let apolloCache: InMemoryCache;

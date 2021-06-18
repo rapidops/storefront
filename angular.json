@@ -35,7 +35,10 @@
               "src/styles/content-editor.css",
               "src/styles/content-editor-media.css"
             ],
-            "scripts": [],
+            "scripts": [
+               "node_modules/jquery/dist/jquery.js",
+               "src/assets/js/slick.min.js"
+            ],
             "stylePreprocessorOptions": {
               "includePaths": [
                 "src/styles",

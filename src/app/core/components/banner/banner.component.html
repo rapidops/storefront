@@ -1,0 +1,13 @@
+ <section>
+    <div class="container">
+        <div class="home-slider">
+            <div *ngFor="let banner of banners">
+                <a  href="javascript:void(0)" *ngIf="this.isSliderApplied" [target]="banner.IsNewPageTarget ? '_blank' : '_self'" [title]="banner.BannerImageAltText"
+                    tabindex="-1"
+                    (click)="redirectTo(banner, $event)">
+                    <img [src]="banner.BannerImage.Url" [alt]="banner.BannerImageAltText">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

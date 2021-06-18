@@ -31,7 +31,7 @@
               }
             ],
             "styles": [
-              "src/styles/styles.scss",
+              "src/styles/styles.scss",              
               "src/styles/content-editor.css",
               "src/styles/content-editor-media.css"
             ],

@@ -39,7 +39,10 @@
 
 .cart-title {
     font-weight: $font-weight-light;
+    font-size: 1rem;
+    font-weight: 500;
 }
+
 
 .cart-drawer-contents {
     display: flex;
@@ -67,3 +70,5 @@ vsf-cart-contents {
     font-size: $font-size-lg;
     color: #999;
 }
+
+

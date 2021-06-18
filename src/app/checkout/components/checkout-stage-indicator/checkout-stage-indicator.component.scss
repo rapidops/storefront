@@ -46,3 +46,73 @@
     border-bottom: 1px solid $gray-300;
     margin: 0 $spacer / 2;
 }
+
+
+.progress-main { width: 686px; margin: 0 auto 50px; }
+.progress {
+    height: 3px;
+    background-color: #dbdbdb;
+    position: relative;
+    top: 11px;
+    margin: 0 80px;
+}
+
+.progress-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color:#00b86b;
+    transition: width .6s ease;
+}
+
+.progress.payment .progress-bar { width: 28%!important; }
+.progress.place-order .progress-bar { width: 64%!important;}
+.progress.confirmation .progress-bar {width: 100%!important;}
+
+.progress-main .progress-bar-circle  {
+    text-align: center;
+    z-index: 99;
+    display: inline-block;
+    top: 0;
+    position: relative;
+}
+.progress-main .progress-bar-circle:before {
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    content: "";
+    display: inline-block;
+    background-color: #dbdbdb;
+}
+
+.progress-main .progress-bar-circle.active:before,
+.progress-main .progress-bar-circle.current:before {    
+    background-color: #00b86b;
+}
+
+.progress-main .progress-bar-circle.active:after {    
+    content: "";
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 10px;
+    width: 5px;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    position: absolute;
+    top:3px;
+    left:50%;
+    margin-left: -3px;
+}
+
+
+.progress-main .progress-bar-circle span {
+    color: #9b9dab;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    display: block;
+    text-transform: uppercase;
+}

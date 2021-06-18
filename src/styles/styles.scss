@@ -1,5 +1,7 @@
 @import "bootstrap";
+@import "bootstarp-overwrite.scss";
 @import "~@angular/cdk/overlay-prebuilt";
+
 
 @import "variables";
 body{font-family: 'Rubik', sans-serif;}

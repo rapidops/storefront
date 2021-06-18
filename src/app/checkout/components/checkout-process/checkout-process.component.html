@@ -5,10 +5,12 @@
         <router-outlet></router-outlet>
     </div>
     <div class="summary" *ngIf="cart$ | async as cart">
+        <h2 class="text-uppercase mb-4">Summary</h2>
         <vsf-cart-contents [cart]="cart" class="mb-3"></vsf-cart-contents>
         <vsf-address-card *ngIf="cart.shippingAddress?.streetLine1"
                           title="Shipping address"
-                          [address]="cart.shippingAddress">
+                          [address]="cart.shippingAddress"
+                          class="summaryShipppingAddress">
             <button class="btn btn-secondary"
                     *ngIf="(activeStage$ | async) === 3"
                     (click)="changeShippingAddress()">Change

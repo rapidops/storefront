@@ -1,14 +1,67 @@
 <div class="container">
-    <ul class="nav" *ngIf="collectionTree$ | async as tree">
-        <li class="nav-item" *ngFor="let collection of tree.children"
-            (mouseenter)="onMouseEnter(collection)"
-            (mouseleave)="close($event)">
-            <a class="nav-link"
-               [class.active]="(setActiveCollection$ | async)?.id === collection.id && overlayIsOpen$ | async"
-               (touchstart)="onTopLevelClick($event, collection)"
-               [routerLink]="['/category', collection.slug ]">{{ collection.name }}</a>
-        </li>
-    </ul>
+    <div class="bottom-header-main">
+    <div class="bottom-header">
+        <div class="bottom-header-left">
+            <div class="sidemenu float-left">
+                <a href="javascript:void(0)" class="nav-open">
+                    <span class="icon"></span><span class="icon-text">Browse by Category</span>
+                </a>
+                <div class="side-megamenu mobilemenu animated fadeInDown">
+                    <div class="">
+                        <div class="sf-mega">
+                            <div class="for-mobile">
+                                <div class="login-widget-main">
+                                    <span class="close"></span>
+                                </div>
+                                <div class="collapse" id="my-lists">
+                                    <div class="my-lists-link-menu" href="javascript:void(0);">
+                                        <div class="dropdown-item">
+                                            <span class="clearfix active-list-main">
+                                                <span class="active-list">Set Default
+                                                  List</span><span class="help-link"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="section-withborder">
+                                <h5 class="menutitle"><a href="javascript:void(0)" class="browse-by-category-title-link">Browse by Category</a><a href="javascript:void(0)" class="arrow-icon"  aria-label="Close Browse by Category menu"></a></h5>
+<!--                                <ul class="menu-nav sf-menu">-->
+<!--                                    &lt;!&ndash;TODO need to add skeleton loader instead of this loader&ndash;&gt;-->
+<!--                                    <div class="mobile-categoryList">-->
+<!--                                    </div>-->
+<!--                                </ul>-->
+                                <ul class="nav menu-nav sf-menu" *ngIf="collectionTree$ | async as tree">
+                                    <li class="nav-item" *ngFor="let collection of tree.children"
+                                        (mouseenter)="onMouseEnter(collection)"
+                                        (mouseleave)="close($event)">
+                                        <a class="nav-link"
+                                           [class.active]="(setActiveCollection$ | async)?.id === collection.id && overlayIsOpen$ | async"
+                                           (touchstart)="onTopLevelClick($event, collection)"
+                                           [routerLink]="['/category', collection.slug ]">{{ collection.name }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+<!--                            <div class="for-mobile">-->
+<!--                                <div class="mobile-link">-->
+<!--                                    <a href="javascript:void(0)" class="recipes-link">Recipes</a>-->
+<!--                                    <a href="javascript:void(0)">My Last Order</a>-->
+<!--                                    <a href="javascript:void(0)">Manage Online Orders</a>-->
+<!--                                    <a href="javascript:void(0)">Edit Account</a>-->
+<!--                                    <a href="" target="_self">Help</a>-->
+<!--                                    <a href="javascript:void(0)">Sign Out</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
 </div>
 
 <ng-template #menuTemplate>

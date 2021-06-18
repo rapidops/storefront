@@ -860,7 +860,6 @@ container css same as container css of bootstrap to match the other template pag
 .ROright_video_description_main .ROyoutubeContainer{overflow: hidden;  padding-top:27.6%;  position: relative;}
 .ROright_video_description_main .ROyoutubeContainer iframe {border: 0;  height: 100%;  left: 0;  position: absolute;  top: 0;  width: 100%;}
 
-
 .campaign-page-main .product-section{ margin-bottom: 24px;}
 .campaign-page-main .section-products ul li{padding-bottom: 20px;}
 .campaign-page-main .selectedCampaign{ display: none; }
@@ -875,10 +874,7 @@ container css same as container css of bootstrap to match the other template pag
 .page-not-found-main h2{display: block; margin-bottom: 10px; margin-top: 10px; 	color: #282C3F;	font-family: 'Rubik', sans-serif;;	font-size: 40px;	font-weight: bold;	line-height: 47px;	text-align: center;}
 .page-not-found-main span{display: block; color: #696B79; font-size: 13px;	line-height: 15px;	text-align: center;}
 .page-not-found-main .btn{ margin-top: 30px;}
-.hidden {
-    display: none!important;
-}
-hts-campaign .product-list vsf-product-card:nth-child(5n+5) .product-card{ border-right: none;}
+
 @media screen and (max-width:767px){
     .section-category-titlebar h2{font-size: 16px;	line-height: 20px;}
     .section-category-titlebar{ margin-bottom: 10px;}
@@ -886,5 +882,4 @@ hts-campaign .product-list vsf-product-card:nth-child(5n+5) .product-card{ borde
     .campaign-page-main .section-category-titlebar h2 span{margin-top: 5px;}
     .page-not-found-main {width: 100%;}
 }
-
 

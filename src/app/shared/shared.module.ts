@@ -14,6 +14,7 @@ import { NotificationComponent } from '../core/components/notification/notificat
 import { AddressCardComponent } from './components/address-card/address-card.component';
 import { AddressFormComponent } from './components/address-form/address-form.component';
 import { AddressModalComponent } from './components/address-modal/address-modal.component';
+import {BannerComponent} from './components/banner/banner.component';
 import { CartContentsComponent } from './components/cart-contents/cart-contents.component';
 import { CenteredCardComponent } from './components/centered-card/centered-card.component';
 import { CollectionCardComponent } from './components/collection-card/collection-card.component';
@@ -44,6 +45,7 @@ const SHARED_DECLARATIONS = [
     FormatPricePipe,
     ProductUrlPipe,
     AssetPreviewPipe,
+    BannerComponent
 ];
 
 const IMPORTS = [

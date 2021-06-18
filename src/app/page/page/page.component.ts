@@ -5,11 +5,13 @@ import {
     Pipe,
     PipeTransform
 } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
 // import {createCustomElement} from '@angular/elements';
 import {DomSanitizer, Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import * as _ from 'lodash';
 
+import {DummyProductListComponent} from '../../core/components/dummy-product-list/dummy-product-list.component';
 import {PageService} from '../service/page.service';
 
 declare let $ : any;
@@ -51,12 +53,12 @@ export class PageComponent implements OnInit {
     constructor(injector: Injector, private activatedRoute: ActivatedRoute, private pageService: PageService,
                 private titleService: Title, private router: Router) {
         // Create the custom element
-        // const customElement = customElements.get('hts-campaign');
-        // if (!customElement) {
-        //     const campaignElement = createCustomElement(CampaignComponent, {injector: injector});
-        //     // Register it in the elements registry of the browser => This is NOT an Angular API!
-        //     customElements.define('hts-campaign', campaignElement);
-        // }
+        const customElement = customElements.get('hts-campaign');
+        if (!customElement) {
+            const campaignElement = createCustomElement(DummyProductListComponent, {injector: injector});
+            // Register it in the elements registry of the browser => This is NOT an Angular API!
+            customElements.define('hts-campaign', campaignElement);
+        }
 
     }
 
@@ -123,6 +125,7 @@ export class PageComponent implements OnInit {
                 if (response.Data.Status === 'Published' && response.Data.Body) {
                     this.pageName = response.Data.PageName;
                     this.pageTemplate = JSON.parse(response.Data.PageTemplates);
+                    // debugger;
                     this.pageContent = response.Data.Body;
                     this.titleService.setTitle(`${response.Data.PageName}`);
                     this.showLoader = false;

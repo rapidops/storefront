@@ -27,7 +27,7 @@ export const routes: Route[] = [
         loadChildren: () => import('./checkout/checkout.module').then(m => m.CheckoutModule),
     },
     {
-        path: 'shop/store/ds/page',
+        path: 'shop/store/ds',
         loadChildren: () => import('./page/page.module').then(m => m.PageModule)
     },
     {

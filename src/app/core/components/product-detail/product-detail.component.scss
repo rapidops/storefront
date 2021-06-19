@@ -45,9 +45,9 @@
 }
 
 .add-to-cart-row {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    //display: flex;
+    //align-items: center;
+    //flex-wrap: wrap;
 
     @include media-breakpoint-down(sm) {
         button {
@@ -106,3 +106,8 @@
         }
     }
 }
+h1{color: #282C3F; font-family: 'Rubik', sans-serif;     font-size: 26px; font-weight: 500; margin-bottom: 15px;}
+.sku-info{color: #696B79;	font-size: 14px;	font-weight: 500;	line-height: 12px; padding-bottom: 20px; margin-bottom: 20px; border-bottom:1px solid #EEF2F7;}
+.sku-info strong{	color: #282C3F;}
+.product-text span {display: block;}
+.product-price{display: block;}

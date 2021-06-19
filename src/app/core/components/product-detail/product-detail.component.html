@@ -9,8 +9,9 @@
                 <vsf-asset-gallery [assets]="product.assets"
                                    [selectedAssetId]="product.featuredAsset?.id"></vsf-asset-gallery>
             </div>
-            <div class="col-12 col-md-6" #zoomPreviewArea>
-                <h2 class="display-4 product-name">{{ product.name }}</h2>
+            <div class="col-12 col-md-6 product-text" #zoomPreviewArea>
+                <h1>{{ product.name }}</h1>
+                <span class="sku-info"><strong>SKU:</strong>  {{ selectedVariant?.sku }}</span>
                 <div class="purchase-options">
                     <div class="variant-selector" *ngIf="product.variants.length > 1">
                         <select [(ngModel)]="selectedVariant" class="form-control">
@@ -19,13 +20,13 @@
                         </select>
                     </div>
                     <div class="add-to-cart-row">
-                        <div class="sku">
-                            {{ selectedVariant?.sku }}
-                        </div>
-                        <div class="price">
+<!--                        <div class="sku">-->
+<!--                            {{ selectedVariant?.sku }}-->
+<!--                        </div>-->
+                        <div class="product-price price mb-3">
                             {{ selectedVariant?.priceWithTax | formatPrice }}
                         </div>
-                        <div class="qty mr-md-2 ml-2">
+                        <div class="qty mb-3">
                             <input type="number" min="0" max="99" placeholder="Qty" [(ngModel)]="qty"
                                    class="form-control form-control-lg">
                         </div>

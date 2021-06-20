@@ -868,6 +868,7 @@ container css same as container css of bootstrap to match the other template pag
 .section-category-titlebar h2{float: left; 	color: #1B1B1B;	font-family: 'Rubik', sans-serif;; text-transform: uppercase;	font-size: 22px;	line-height: 25px; margin-top: 5px;}
 .section-category-titlebar .viewmore-btn{float: right;}
 .product-section{ margin-bottom: 40px;}
+.hidden {display: none!important;}
 
 .page-not-found-page{border-radius: 3px;  background-color: #FFFFFF; padding:60px 20px 60px 20px; margin: 30px 0 50px 0;}
 .page-not-found-main{text-align: center; width:530px; margin: 0 auto; }

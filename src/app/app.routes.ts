@@ -1,6 +1,7 @@
 import { Route } from '@angular/router';
-import {DummyProductListComponent} from './core/components/dummy-product-list/dummy-product-list.component';
 
+import {CampaignProductsComponent} from './core/components/campaign-products/campaign-products.component';
+import {DummyProductListComponent} from './core/components/dummy-product-list/dummy-product-list.component';
 import { ProductDetailComponent } from './core/components/product-detail/product-detail.component';
 import { ProductListComponent } from './core/components/product-list/product-list.component';
 
@@ -31,7 +32,7 @@ export const routes: Route[] = [
         loadChildren: () => import('./page/page.module').then(m => m.PageModule)
     },
     {
-        path: 'test',
-        component: DummyProductListComponent,
+        path: 'shop/store/ds/product-list/:permalink',
+        component: CampaignProductsComponent,
     },
 ];

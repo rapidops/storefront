@@ -20,18 +20,18 @@ import {
 
 import { GetCollection, SearchProducts } from '../../../common/generated-types';
 import { getRouteArrayParam } from '../../../common/utils/get-route-array-param';
+import { DataService } from '../../../core/providers/data/data.service';
+import { StateService } from '../../../core/providers/state/state.service';
 import { AssetPreviewPipe } from '../../../shared/pipes/asset-preview.pipe';
-import { DataService } from '../../providers/data/data.service';
-import { StateService } from '../../providers/state/state.service';
 
-import { GET_COLLECTION, SEARCH_PRODUCTS } from './dummy-product-list.graphql';
+import { GET_COLLECTION, SEARCH_PRODUCTS } from './campaign-product-list.graphql';
 
 @Component({
-    selector: 'vsf-product-list',
-    templateUrl: './dummy-product-list.component.html',
-styleUrls: ['./dummy-product-list.component.scss'],
-    })
-export class DummyProductListComponent implements OnInit {
+    selector: 'vsf-campaign-products',
+    templateUrl: './campaign-products.component.html',
+    styleUrls: ['./campaign-products.component.scss'],
+})
+export class CampaignProductsComponent implements OnInit {
     @Input() id: string;
     products$: Observable<SearchProducts.Items[]>;
     totalResults$: Observable<number>;
@@ -46,10 +46,12 @@ export class DummyProductListComponent implements OnInit {
     mastheadBackground$: Observable<SafeStyle>;
     private currentPage = 0;
     private refresh = new BehaviorSubject<void>(undefined);
-    private campaignKeyValue = [{campaignId:'5d1e076c2ff1dc167de67565', collectionId:'2' , name:'Electronics Sale Fest'},{campaignId: '60c8a88b99c2b53f064f97c6', collectionId: '19', name:'Save Big on Footwear Products'},{
-        campaignId: '60c899991130213aa0fc5083', collectionId:  '6', name: 'Super Furniture Sale'}];
+    private campaignKeyValue = [{campaignId:'5d1e076c2ff1dc167de67565', collectionId:'2' , name:'Electronics Sale Fest', 'permalink': 'electronics-sale-fest'},
+        {campaignId: '60c8a88b99c2b53f064f97c6', collectionId: '19', name:'Save Big on Footwear Products', permalink: 'save-big-on-footwear-products'},{
+        campaignId: '60c899991130213aa0fc5083', collectionId:  '6', name: 'Super Furniture Sale', permalink:'super-furniture-sale'}];
     private collectionId : any;
     campaignName: string;
+    private campaignPermaLink: string;
     readonly placeholderProducts = Array.from({ length: 12 }).map(() => null);
 
     constructor(private dataService: DataService,
@@ -58,12 +60,15 @@ export class DummyProductListComponent implements OnInit {
                 private sanitizer: DomSanitizer) { }
 
     ngOnInit() {
-        console.log(this.id);
-        const perPage = 3;
-        const campaignObj: any = _.find(this.campaignKeyValue, {campaignId: this.id});
-        // TODO need to set campaign id and name before demo
+        const perPage = 24;
+        this.route.params.subscribe((urlParams) => {
+            this.campaignPermaLink = urlParams.campaignPermaLink;
+            // this.from = this.activatedRoute.snapshot.queryParamMap.get('from');
+        });
+        const campaignObj: any = _.find(this.campaignKeyValue, {permalink: this.campaignPermaLink});
+        // TODO need to set campaign id and permalink before demo
         if(!campaignObj) {
-             this.collectionId = '19';
+            this.collectionId = '19';
             this.campaignName = 'test';
         } else {
             this.collectionId = campaignObj.collectionId;
@@ -93,7 +98,7 @@ export class DummyProductListComponent implements OnInit {
             distinctUntilChanged(),
             shareReplay(1),
         );
-      this.collection$ = collectionSlug$.pipe(
+        this.collection$ = collectionSlug$.pipe(
             switchMap(slug => {
                 if (slug) {
                     return this.dataService.query<GetCollection.Query, GetCollection.Variables>(GET_COLLECTION, {
@@ -147,10 +152,10 @@ export class DummyProductListComponent implements OnInit {
                         },
                     });
                 }),
-                ).subscribe(data => {
-                    this.facetValues = data.search.facetValues;
-                    this.unfilteredTotalItems = data.search.totalItems;
-                });
+            ).subscribe(data => {
+                this.facetValues = data.search.facetValues;
+                this.unfilteredTotalItems = data.search.totalItems;
+            });
         };
         this.loading$ = merge(
             triggerFetch$.pipe(mapTo(true)),
@@ -223,11 +228,11 @@ export class DummyProductListComponent implements OnInit {
     }
 
 
-     getData(slug:any) {
-         return this.dataService.query<GetCollection.Query, GetCollection.Variables>(GET_COLLECTION, {
-             slug,
-         }).pipe(
-             map(data => data.collection),
-         );
-     }
+    getData(slug:any) {
+        return this.dataService.query<GetCollection.Query, GetCollection.Variables>(GET_COLLECTION, {
+            slug,
+        }).pipe(
+            map(data => data.collection),
+        );
+    }
 }

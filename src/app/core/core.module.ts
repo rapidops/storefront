@@ -15,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { AccountLinkComponent } from './components/account-link/account-link.component';
 import { AssetGalleryComponent } from './components/asset-gallery/asset-gallery.component';
+import {CampaignProductsComponent} from './components/campaign-products/campaign-products.component';
 import { CartDrawerComponent } from './components/cart-drawer/cart-drawer.component';
 import { CartToggleComponent } from './components/cart-toggle/cart-toggle.component';
 import { CollectionBreadcrumbsComponent } from './components/collection-breadcrumbs/collection-breadcrumbs.component';
@@ -52,7 +53,8 @@ const CORE_COMPONENTS = [
     ProductListControlsComponent,
     ProductSearchBarComponent,
     AssetGalleryComponent,
-    DummyProductListComponent
+    DummyProductListComponent,
+    CampaignProductsComponent
 ];
 
 let apolloCache: InMemoryCache;

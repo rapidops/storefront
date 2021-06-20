@@ -43,6 +43,11 @@
 .purchase-options {
     margin: $spacer * 2 0;
 }
+//.addtocart-row-main{
+//    display: flex;
+//    align-items: center;
+//    flex-wrap: wrap;
+//}
 
 .add-to-cart-row {
     //display: flex;
@@ -111,3 +116,6 @@ h1{color: #282C3F; font-family: 'Rubik', sans-serif;     font-size: 26px; font-w
 .sku-info strong{	color: #282C3F;}
 .product-text span {display: block;}
 .product-price{display: block;}
+.three-col-text{margin: 50px 0;}
+.three-col-text .col-text{display: inline-block; vertical-align: top; width: 33.33%; text-align: center; padding: 0 4%;}
+.three-col-text .col-text h5{padding: 16px 0;}

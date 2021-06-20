@@ -18,7 +18,7 @@
                 <li *ngFor="let value of facet.values; trackBy:trackById" [class.active]="isActive(value.id)">
                     <label class="mb-0 mr-4 mr-md-2"><input type="checkbox" [checked]="isActive(value.id)"
                                                             (change)="toggleFacetValueIdInRoute(value.id)"
-                                                            class="mr-1"> {{ value.name }}
+                                                            class="mr-1"> {{ value.name }} ({{value.count}})
                     </label>
                 </li>
             </ul>

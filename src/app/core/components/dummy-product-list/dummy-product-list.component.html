@@ -1,6 +1,6 @@
 <div class="container m-t-lg">
     <div class="row">
-        <div class="col-12 col-md-12">
+        <div class="col-12 col-md-12 smart-filter">
             <h2 *ngIf="campaignName">{{ campaignName }}</h2>
             <ng-container *ngIf="(totalResults$ | async) !== 0; else noResults">
                 <div class="product-list">

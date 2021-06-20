@@ -62,14 +62,14 @@ export class CampaignProductsComponent implements OnInit {
     ngOnInit() {
         const perPage = 24;
         this.route.params.subscribe((urlParams) => {
-            this.campaignPermaLink = urlParams.campaignPermaLink;
+            this.campaignPermaLink = urlParams.permalink;
             // this.from = this.activatedRoute.snapshot.queryParamMap.get('from');
         });
         const campaignObj: any = _.find(this.campaignKeyValue, {permalink: this.campaignPermaLink});
         // TODO need to set campaign id and permalink before demo
         if(!campaignObj) {
-            this.collectionId = '19';
-            this.campaignName = 'test';
+            this.collectionId = '1282918';
+            // this.campaignName = 'test';
         } else {
             this.collectionId = campaignObj.collectionId;
             this.campaignName = campaignObj.name;

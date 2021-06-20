@@ -93,7 +93,24 @@ vsf-account-link{
     margin-top: 5px;
 }
 
-.product-card{}
+vsf-campaign-products .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 220px);
+    grid-row-gap: $spacer;
+    justify-content: space-around;
+    min-height: 50vh;
+}
+.smart-filter h2{margin-bottom: 0; width: 100%; padding-right: 0; color: #1b1b1b;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 15px;
+    font-family: Rubik,sans-serif;
+    font-size: 24px;
+    line-height: 25px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 30px;
+    }
+vsf-campaign-products .product-list vsf-product-card:nth-child(5n+5) .product-card{ border-right: none;}
 .product-list vsf-product-card .product-card{border-right: 1px solid #e8e8e8; padding: 0 38px 0 0;}
 vsf-home-page .product-list vsf-product-card:nth-child(6n+6) .product-card{ border-right: none;}
 .m-t-lg{margin-top: 50px;}

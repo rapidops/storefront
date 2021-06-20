@@ -4,3 +4,23 @@
     display: block;
     // margin: $spacer / 2 0;
 }
+.breadcrumb{
+    color: #696b79;
+    font-size: 13px;
+    line-height: 13px;
+    background: 0 0;
+    padding: 20px 0;
+    margin-bottom: 0;
+    .breadcrumb-item{
+        a{
+        color: #696b79;
+        font-size: 13px;
+        line-height: 13px;
+        }
+        color: #282c3f;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 13px;
+    }
+}
+.breadcrumb-item + .breadcrumb-item::before{content: ">"}

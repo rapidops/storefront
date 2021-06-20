@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import {Title} from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter, map, switchMap, withLatestFrom } from 'rxjs/operators';
@@ -30,7 +31,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     constructor(private dataService: DataService,
                 private stateService: StateService,
                 private notificationService: NotificationService,
-                private route: ActivatedRoute) {
+                private route: ActivatedRoute,
+                private titleService: Title) {
     }
 
     ngOnInit() {
@@ -51,6 +53,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
             filter(notNullOrUndefined),
             withLatestFrom(lastCollectionSlug$),
         ).subscribe(([product, lastCollectionSlug]) => {
+            this.titleService.setTitle(product.name);
             this.product = product;
             if (this.product.featuredAsset) {
                 this.selectedAsset = this.product.featuredAsset;

@@ -132,7 +132,7 @@ export class CollectionsMenuComponent implements OnInit, OnDestroy {
 
                // else {
                     // tslint:disable-next-line:only-arrow-functions
-                    $(document).on('click', '.close', function () {
+                    $(document).on('click', '.close, .side-megamenu, .collections-menu-sub-collections', function () {
                         if ($('.side-megamenu').hasClass('active')) {
                             $('.side-megamenu').removeClass('active');
                             $('body').toggleClass('bm-overlay-body');
@@ -146,13 +146,22 @@ export class CollectionsMenuComponent implements OnInit, OnDestroy {
                 //     $('.menutitle').toggleClass('active');
                 // });
                 // tslint:disable-next-line:only-arrow-functions
-                $(document).on('click', 'ul.menu-nav li .category-details li a', function () {
-                    // close menu while selecting category
-                    if ($('.side-megamenu').hasClass('active')) {
-                        $('.side-megamenu').removeClass('active');
-                        $('body').toggleClass('bm-overlay-body');
-                    }
-                });
+                // $(document).on('click', 'ul.menu-nav li .category-details li a', function () {
+                //     // close menu while selecting category
+                //     if ($('.side-megamenu').hasClass('active')) {
+                //         $('.side-megamenu').removeClass('active');
+                //         $('body').toggleClass('bm-overlay-body');
+                //     }
+                // });
+
+                // $(document).on('click', '.collections-menu-sub-collections' ,function () {
+                //     debugger;
+                //     // close menu while selecting category
+                //     if ($('.side-megamenu').hasClass('active')) {
+                //         $('.side-megamenu').removeClass('active');
+                //         $('body').toggleClass('bm-overlay-body');
+                //     }
+                // });
 
                 if (isDesktop) {
                     // for display some menu besides of main menu

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import {DomSanitizer, SafeStyle, Title} from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import * as _ from 'lodash';
 import { BehaviorSubject, combineLatest, merge, Observable, of } from 'rxjs';
 import {
     distinctUntilChanged,
@@ -45,14 +46,18 @@ export class ProductListComponent implements OnInit {
     private currentPage = 0;
     private refresh = new BehaviorSubject<void>(undefined);
     readonly placeholderProducts = Array.from({ length: 12 }).map(() => null);
+    categoryTitle: string;
+    totalProducts: any;
 
     constructor(private dataService: DataService,
                 private route: ActivatedRoute,
                 private stateService: StateService,
-                private sanitizer: DomSanitizer) { }
+                private sanitizer: DomSanitizer,
+                private titleService: Title) { }
 
     ngOnInit() {
-        const perPage = 24;
+
+        const perPage = 10;
         const collectionSlug$ = this.route.paramMap.pipe(
             map(pm => pm.get('slug')),
             distinctUntilChanged(),
@@ -101,8 +106,10 @@ export class ProductListComponent implements OnInit {
         this.breadcrumbs$ = this.collection$.pipe(
             map(collection => {
                 if (collection) {
+                    this.setTitle(collection.breadcrumbs);
                     return collection.breadcrumbs;
                 } else {
+                    this.setTitle([]);
                     return [{
                         id: '',
                         name: 'Home',
@@ -188,6 +195,7 @@ export class ProductListComponent implements OnInit {
         this.totalResults$ = queryResult$.pipe(map(data => data.search.totalItems));
         this.displayLoadMore$ = combineLatest(this.products$, this.totalResults$).pipe(
             map(([products, totalResults]) => {
+                this.totalProducts = totalResults;
                 return 0 < products.length && products.length < totalResults;
             }),
         );
@@ -201,6 +209,21 @@ export class ProductListComponent implements OnInit {
     loadMore() {
         this.currentPage ++;
         this.refresh.next();
+    }
+
+
+    setTitle(breadcrumbs: any) {
+        if(breadcrumbs && breadcrumbs.length) { // set page title
+             const lastCollection: any = _.last(breadcrumbs);
+             this.categoryTitle = lastCollection.name;
+             this.titleService.setTitle(this.categoryTitle);
+        } else {
+            this.searchTerm$.subscribe((str)=> {
+                this.categoryTitle = `Search Results: ${str}` ;
+                this.titleService.setTitle(this.categoryTitle);
+            });
+
+        }
     }
 
 }

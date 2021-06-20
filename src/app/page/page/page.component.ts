@@ -125,7 +125,6 @@ export class PageComponent implements OnInit {
                 if (response.Data.Status === 'Published' && response.Data.Body) {
                     this.pageName = response.Data.PageName;
                     this.pageTemplate = JSON.parse(response.Data.PageTemplates);
-                    // debugger;
                     this.pageContent = response.Data.Body;
                     this.titleService.setTitle(`${response.Data.PageName}`);
                     this.showLoader = false;

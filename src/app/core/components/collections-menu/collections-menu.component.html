@@ -34,7 +34,9 @@
                                 <ul class="nav menu-nav sf-menu" *ngIf="collectionTree$ | async as tree">
                                     <li class="nav-item" *ngFor="let collection of tree.children"
                                         (mouseenter)="onMouseEnter(collection)"
-                                        (mouseleave)="close($event)">
+                                        (mouseleave)="close($event)"
+
+                                    >
                                         <a class="nav-link"
                                            [class.active]="(setActiveCollection$ | async)?.id === collection.id && overlayIsOpen$ | async"
                                            (touchstart)="onTopLevelClick($event, collection)"
@@ -45,6 +47,7 @@
                                                  (touchstart)="captureTouchStart($event)"
                                                  (mouseenter)="onMouseEnter(activeCollection)"
                                                  (mouseleave)="close()"
+                                                 (click)="close()"
                                             >
                                                 <div class=" d-flex flex-wrap">
                                                     <div class="menutitle-main">

@@ -69,10 +69,10 @@
 
  .sidemenu .side-megamenu ul{padding: 0; margin: 0;}
  .sidemenu .side-megamenu ul li{padding: 0; margin: 0; list-style: none; width: 100%; }
- .sidemenu .side-megamenu ul li:hover > ul{display: block;}
+ //.sidemenu .side-megamenu ul li:hover > ul{display: block;}
  .sidemenu .side-megamenu ul li:hover > a{color: #00B86B;}
  .sidemenu .side-megamenu ul li a{ padding: 5px 20px; color: #282C3F;	font-size: 16px;	line-height: 36px; display: block;}
- .sidemenu .side-megamenu ul li a:hover, .sidemenu .side-megamenu ul li.current > a, .sidemenu .side-megamenu ul li.sfHover > a{color: #00B86B;}
+ // .sidemenu .side-megamenu ul li a:hover, .sidemenu .side-megamenu ul li.current > a, .sidemenu .side-megamenu ul li.sfHover > a{color: #00B86B;}
  .collections-menu-sub-collections{z-index:101; padding: 0; margin-left: 0;   left:350px; top:60px; min-height: 250px;  height: auto; width: 700px; background: #fff; position: absolute; border: 1px solid #DBDBDB;	border-radius: 2px;	box-shadow: 0 12px 29px -3px rgba(0,0,0,0.28);}
  .collections-menu-sub-collections .level-1-block{ padding: 0; margin: 0; width: 50%; display: inline-block;}
 

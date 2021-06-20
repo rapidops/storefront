@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import * as _ from 'lodash';
 import { BehaviorSubject, combineLatest, merge, Observable, of } from 'rxjs';
 import {
     distinctUntilChanged,
@@ -45,8 +46,10 @@ export class DummyProductListComponent implements OnInit {
     mastheadBackground$: Observable<SafeStyle>;
     private currentPage = 0;
     private refresh = new BehaviorSubject<void>(undefined);
-    private campaignKeyValue = [{campaignId:'60c8a88b99c2b53f064f97c6', collectionId:'18'},{campaignId: '60c899991130213aa0fc5083', collectionId: '19'}];
+    private campaignKeyValue = [{campaignId:'5d1e076c2ff1dc167de67565', collectionId:'2' , name:'Electronics Sale Fest'},{campaignId: '60c8a88b99c2b53f064f97c6', collectionId: '19', name:'Save Big on Footwear Products'},{
+        campaignId: '60c899991130213aa0fc5083', collectionId:  '6', name: 'Super Furniture Sale'}];
     private collectionId : any;
+    campaignName: string;
     readonly placeholderProducts = Array.from({ length: 12 }).map(() => null);
 
     constructor(private dataService: DataService,
@@ -55,10 +58,17 @@ export class DummyProductListComponent implements OnInit {
                 private sanitizer: DomSanitizer) { }
 
     ngOnInit() {
-        console.log('**********');
         console.log(this.id);
-        console.log('**********');
-        const perPage = 24;
+        const perPage = 3;
+        const campaignObj: any = _.find(this.campaignKeyValue, {campaignId: this.id});
+        // TODO need to set campaign id and name before demo
+        if(!campaignObj) {
+             this.collectionId = '19';
+            this.campaignName = 'test';
+        } else {
+            this.collectionId = campaignObj.collectionId;
+            this.campaignName = campaignObj.name;
+        }
 
         const collectionSlug$ = this.route.paramMap.pipe(
             map(pm => pm.get('slug')),
@@ -151,7 +161,7 @@ export class DummyProductListComponent implements OnInit {
                     input: {
                         term,
                         groupByProduct: true,
-                        collectionId: '19',
+                        collectionId: this.collectionId,
                         facetValueIds,
                         take: perPage,
                         skip: this.currentPage * perPage,

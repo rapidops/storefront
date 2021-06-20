@@ -2,7 +2,7 @@
     <div class="masthead-bg" [style.background-image]="mastheadBackground$ | async"></div>
     <div class="container position-relative">
         <vsf-collection-breadcrumbs [breadcrumbs]="breadcrumbs$ | async"></vsf-collection-breadcrumbs>
-        <h1 class="display-1 collection-name">{{ (collection$ | async)?.name }}</h1>
+<!--        <h1 class="display-1 collection-name">{{ (collection$ | async)?.name }}</h1>-->
         <h1 class="display-4 text-muted" *ngIf="searchTerm$ | async as term">
              Results for <span class="text-dark">"{{ term }}"</span>
         </h1>
@@ -17,6 +17,7 @@
                                        [totalResults]="unfilteredTotalItems"></vsf-product-list-controls>
         </div>
         <div class="col-12 col-md-10">
+            <h2>{{categoryTitle}} <span *ngIf="totalProducts">({{totalProducts}})</span></h2>
             <ng-container *ngIf="collection$ | async as collection">
                 <div *ngIf="collection.children.length" class="child-categories d-flex flex-column flex-md-row">
                     <vsf-collection-card *ngFor="let child of collection.children"
@@ -52,14 +53,11 @@
 </div>
 
 <ng-template #noResults>
-<!--    <div class="no-results col-12">-->
-<!--        <p class="h1">No results</p>-->
-<!--        <fa-icon icon="sad-cry" size="10x"></fa-icon>-->
-<!--    </div>-->
     <div class="section-products section-noproduct">
         <div class="section-noproduct-inner">
             <img src="assets/images/no_product.png" alt="no product">
-            <span>No Products Found</span>
+            <span>Sorry, no results found!</span>
+            <p>Please check the spelling or try searching for something else.</p>
         </div>
     </div>
 </ng-template>

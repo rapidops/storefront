@@ -34,7 +34,9 @@
                                 <ul class="nav menu-nav sf-menu" *ngIf="collectionTree$ | async as tree">
                                     <li class="nav-item" *ngFor="let collection of tree.children"
                                         (mouseenter)="onMouseEnter(collection)"
-                                        (mouseleave)="close($event)">
+                                        (mouseleave)="close($event)"
+
+                                    >
                                         <a class="nav-link"
                                            [class.active]="(setActiveCollection$ | async)?.id === collection.id && overlayIsOpen$ | async"
                                            (touchstart)="onTopLevelClick($event, collection)"
@@ -45,18 +47,20 @@
                                                  (touchstart)="captureTouchStart($event)"
                                                  (mouseenter)="onMouseEnter(activeCollection)"
                                                  (mouseleave)="close()"
+                                                 (click)="close()"
                                             >
                                                 <div class=" d-flex flex-wrap">
                                                     <div class="menutitle-main">
-                                                        <h5 class="menutitle"><a href="javascript:void(0)" class="browse-by-category-title-link">{{ collection.name }}</a></h5>
+                                                        <h5 class="menutitle"><a href="javascript:void(0)" class="browse-by-category-title-link"> {{ activeCollection.name }}</a></h5>
                                                     </div>
                                                     <div class="level-1-block" *ngFor="let level1 of activeCollection.children">
                                                         <vsf-collection-card [collection]="level1"></vsf-collection-card>
                                                         <ng-container *ngFor="let level2 of level1.children">
                                                             <a class="level-2-link"
+                                                               href="javascript:void(0)"
                                                                [routerLink]="['/category', level2.slug]"
                                                                (click)="close()">
-                                                                {{ level2.name }}
+                                                               {{ level2.name }}
                                                             </a>
                                                         </ng-container>
                                                     </div>

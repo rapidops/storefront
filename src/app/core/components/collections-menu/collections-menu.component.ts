@@ -129,45 +129,39 @@ export class CollectionsMenuComponent implements OnInit, OnDestroy {
                 });
                 // For the mobile view
                 // TODO  need to do dynamic mobile view
-                if (isMobile && window.innerWidth > 1023) {
+
+               // else {
                     // tslint:disable-next-line:only-arrow-functions
-                    $(document).on('click', '.close', function () {
+                    $(document).on('click', '.close, .side-megamenu, .collections-menu-sub-collections', function () {
                         if ($('.side-megamenu').hasClass('active')) {
                             $('.side-megamenu').removeClass('active');
                             $('body').toggleClass('bm-overlay-body');
                         }
                     });
-                } else if (isMobile) {
-                    // tslint:disable-next-line:only-arrow-functions
-                    $(document).on('click', '.for-mobile .close', function () {
-                        if ($('.side-megamenu').hasClass('active')) {
-                            $('.side-megamenu').removeClass('active');
-                            $('body').toggleClass('bm-overlay-body');
-                        }
-                    });
-                } else {
-                    // tslint:disable-next-line:only-arrow-functions
-                    $(document).on('click', '.close', function () {
-                        if ($('.side-megamenu').hasClass('active')) {
-                            $('.side-megamenu').removeClass('active');
-                            $('body').toggleClass('bm-overlay-body');
-                        }
-                    });
-                }
+                // }
                 // For the mobile view
-                $(document).on('click', '.menutitle', function () {
-                    // @ts-ignore
-                    $(this).next().toggleClass('active');
-                    $('.menutitle').toggleClass('active');
-                });
+                // $(document).on('click', '.menutitle', function () {
+                //     // @ts-ignore
+                //     $(this).next().toggleClass('active');
+                //     $('.menutitle').toggleClass('active');
+                // });
                 // tslint:disable-next-line:only-arrow-functions
-                $(document).on('click', 'ul.menu-nav li .category-details li a', function () {
-                    // close menu while selecting category
-                    if ($('.side-megamenu').hasClass('active')) {
-                        $('.side-megamenu').removeClass('active');
-                        $('body').toggleClass('bm-overlay-body');
-                    }
-                });
+                // $(document).on('click', 'ul.menu-nav li .category-details li a', function () {
+                //     // close menu while selecting category
+                //     if ($('.side-megamenu').hasClass('active')) {
+                //         $('.side-megamenu').removeClass('active');
+                //         $('body').toggleClass('bm-overlay-body');
+                //     }
+                // });
+
+                // $(document).on('click', '.collections-menu-sub-collections' ,function () {
+                //     debugger;
+                //     // close menu while selecting category
+                //     if ($('.side-megamenu').hasClass('active')) {
+                //         $('.side-megamenu').removeClass('active');
+                //         $('body').toggleClass('bm-overlay-body');
+                //     }
+                // });
 
                 if (isDesktop) {
                     // for display some menu besides of main menu
@@ -187,14 +181,14 @@ export class CollectionsMenuComponent implements OnInit, OnDestroy {
                     });
                 }
 
-                if (isMobile || isIpad) { // no need to display subcategories HTDART-15921
-                    // tslint:disable-next-line:only-arrow-functions
-                    $(document).on('click', 'ul.menu-nav li', function () {
-                        // $(this).toggleClass('active'); // Hide submenu for mobile
-                    });
-                    const window_height = $(window).height();
-                    $('.side-megamenu').css({'max-height': window_height - 150});
-                }
+                // if (isMobile || isIpad) { // no need to display subcategories HTDART-15921
+                //     // tslint:disable-next-line:only-arrow-functions
+                //     $(document).on('click', 'ul.menu-nav li', function () {
+                //         // $(this).toggleClass('active'); // Hide submenu for mobile
+                //     });
+                //     const window_height = $(window).height();
+                //     $('.side-megamenu').css({'max-height': window_height - 150});
+                // }
             });
         }
     }

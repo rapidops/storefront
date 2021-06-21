@@ -6,7 +6,8 @@
     align-items: flex-start;
     position: fixed;
     height: 100vh;
-    width: calc(100vw - 3rem);
+    width: 200px;
+    //width: calc(100vw - 3rem);
     padding: $spacer;
     top: 0;
     left: 0;
@@ -18,7 +19,11 @@
     overflow: auto;
     box-shadow: $box-shadow;
     font-size: $font-size-lg;
-
+ul{
+    li{
+        font-size: 14px;
+    }
+}
     @include media-breakpoint-up(sm) {
         display: none;
     }
@@ -35,7 +40,7 @@
 button.close {
     position: absolute;
     top: $spacer;
-    right: $spacer * 2;
+    right: $spacer * 1;
 }
 
 ul {

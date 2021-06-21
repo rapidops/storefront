@@ -19,18 +19,18 @@
         </div>
     </div>
     <div class="card" *ngIf="!(signedIn$ | async)">
-        <div class="card-header">
+        <div class="card-header mb-3">
             <button class="btn btn-light" (click)="step = 'customerDetails'">Customer Details</button>
         </div>
         <div class="card-body collapse" [class.show]="step === 'customerDetails'">
             <form #customerForm="ngForm">
                 <div class="d-lg-flex">
-                    <input class="form-control"
+                    <input class="form-control mr-3"
                            placeholder="First Name"
                            name="firstName"
                            [(ngModel)]="firstName"
                            required>
-                    <input class="form-control"
+                    <input class="form-control mr-3"
                            placeholder="Last Name"
                            name="lastName"
                            [(ngModel)]="lastName"
@@ -51,7 +51,7 @@
 
     </div>
     <div class="card" *ngIf="!(signedIn$ | async) || (customerAddresses$ | async)?.length === 0">
-        <div class="card-header">
+        <div class="card-header mb-3">
             <button class="btn btn-light"
                     [disabled]="step === 'customerDetails'"
                     (click)="step = 'editAddress'">Shipping Address</button>

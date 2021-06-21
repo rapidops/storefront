@@ -1,4 +1,4 @@
-<div class="stage" *ngIf="!signedIn" [class.active]="activeStage === 1">
+<!-- <div class="stage" *ngIf="!signedIn" [class.active]="activeStage === 1">
     <div class="number">1</div>
     <div class="label">Account</div>
 </div>
@@ -16,4 +16,24 @@
 <div class="stage" [class.active]="activeStage === 4">
     <div class="number">{{ signedIn ? 3 : 4}}</div>
     <div class="label">Complete</div>
+</div> -->
+
+<div class="progress-main">
+    <div class="progress order-option">
+        <div class="progress-bar progress-bar-width-line" style="width: 0%" ></div>
+    </div>
+    <div class="d-flex justify-content-around">
+        <span class="progress-bar-circle order-circle current">
+            <span>Order Option</span>
+        </span>
+        <span class="progress-bar-circle payment-circle">
+            <span>Payment</span>
+        </span>
+        <span class="progress-bar-circle place-circle">
+            <span>Review and Place Order</span>
+        </span>
+        <span class="progress-bar-circle confirmation-circle">
+            <span>Confirmation</span>
+        </span>
+    </div>
 </div>

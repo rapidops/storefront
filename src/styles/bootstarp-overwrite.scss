@@ -1,0 +1,113 @@
+/*  Common Css Starts */
+.card { border:none; }  
+.card-footer { background-color: transparent; }
+
+
+.form-control{
+    height: 42px;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    box-shadow: none;
+}
+
+.custom-select:focus, .form-control:focus {border-color: #d5d5d5; box-shadow:0 0 0 0.2rem rgba(0,0,0,0.06); }
+
+
+a, a:hover {
+    color: #00b86b;
+}
+
+.font-weight-medium { font-weight: 500; }
+
+.h1, h1 {
+    font-size: 1.625rem; /*26px*/
+    font-weight: 500;
+}
+
+.h2, h2 {
+    font-size: 1.375rem; /*22px*/
+    font-weight: 500;
+}
+
+.h3, h3 {
+    font-size: 1.25rem;/*20px*/
+}
+
+.h4, h4 {
+    font-size: 1.125rem;/*18px*/
+    font-weight: 500;    
+}
+
+.h5, h5 {
+    font-size: 1rem;/*16px*/
+    font-weight: 500;
+}
+
+
+.h6, h6 {
+    font-size: 0.875rem;/*14px*/
+    font-weight: 500;
+}
+
+
+.btn-secondary.disabled:hover, .btn-secondary:disabled:hover,
+.btn-secondary.disabled, .btn-secondary:disabled {
+    background-color: #dbdbdb;
+    color: #fff;
+    border-color: #dbdbdb;
+}
+
+.btn-secondary {
+    padding: 10px 30px;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    font-family: Rubik,sans-serif;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    border-radius: 8px;
+    background-color: #ff6944;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #ff6944;
+}
+
+.btn-secondary:focus, .btn-secondary.focus,
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active {
+    color: #fff;
+    background-color: #545b62;
+    border-color: #4e555b;
+    box-shadow: none;
+}
+
+.btn-light:not(:disabled):not(.disabled):active,
+.btn-light:not(:disabled):not(.disabled).active,
+.btn-light:focus, .btn-light.focus,
+.btn-light:not(:disabled):not(.disabled):active:focus,
+.btn-light:not(:disabled):not(.disabled).active:focus,
+.btn-light:hover {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    box-shadow: none;
+}
+
+
+/*  Common Css Ends */
+
+.totals span:first-child,
+.shipping-price span:first-child { font-weight: 500; }  
+.summaryShipppingAddress {
+    .card-body {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .card-title {
+        text-transform: uppercase;
+    }
+}

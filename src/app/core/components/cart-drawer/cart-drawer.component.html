@@ -1,18 +1,18 @@
 <div class="cart-drawer-header">
+    <h4 class="m-0 cart-title text-uppercase">Cart Summary</h4>
     <button class="btn" (click)="close.emit()">
         <fa-icon icon="times"></fa-icon>
-    </button>
-    <h3 class="cart-title">Cart</h3>
+    </button>    
 </div>
 <div *ngIf="!(isEmpty$ | async); else empty" class="cart-drawer-contents">
     <vsf-cart-contents [cart]="cart$ | async"
                        [canAdjustQuantities]="true"
                        (setQuantity)="setQuantity($event)"></vsf-cart-contents>
     <div class="checkout-button">
-        <a class="btn btn-block btn-primary"
+        <a class="btn btn-block btn-secondary"
            color="primary"
            (click)="close.emit()"
-           [routerLink]="['/checkout']">Check Out</a>
+           [routerLink]="['/checkout']">Proceed to Checkout</a>
     </div>
 </div>
 <ng-template #empty>

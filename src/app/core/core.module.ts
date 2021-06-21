@@ -15,11 +15,13 @@ import { SharedModule } from '../shared/shared.module';
 
 import { AccountLinkComponent } from './components/account-link/account-link.component';
 import { AssetGalleryComponent } from './components/asset-gallery/asset-gallery.component';
+import {CampaignProductsComponent} from './components/campaign-products/campaign-products.component';
 import { CartDrawerComponent } from './components/cart-drawer/cart-drawer.component';
 import { CartToggleComponent } from './components/cart-toggle/cart-toggle.component';
 import { CollectionBreadcrumbsComponent } from './components/collection-breadcrumbs/collection-breadcrumbs.component';
 import { CollectionsMenuMobileComponent } from './components/collections-menu-mobile/collections-menu-mobile.component';
 import { CollectionsMenuComponent } from './components/collections-menu/collections-menu.component';
+import {DummyProductListComponent} from './components/dummy-product-list/dummy-product-list.component';
 import { FooterComponent} from './components/footer/footer.component';
 import { LayoutFooterComponent } from './components/layout/layout-footer.component';
 import { LayoutHeaderComponent } from './components/layout/layout-header.component';
@@ -50,7 +52,9 @@ const CORE_COMPONENTS = [
     CollectionBreadcrumbsComponent,
     ProductListControlsComponent,
     ProductSearchBarComponent,
-    AssetGalleryComponent
+    AssetGalleryComponent,
+    DummyProductListComponent,
+    CampaignProductsComponent
 ];
 
 let apolloCache: InMemoryCache;

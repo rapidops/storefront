@@ -1,0 +1,28 @@
+<div class="container m-t-lg">
+    <div class="row">
+        <div class="col-12 col-md-12 smart-filter">
+            <h2 *ngIf="campaignName">{{ campaignName }}</h2>
+            <ng-container *ngIf="(totalResults$ | async) !== 0; else noResults">
+                <div class="product-list">
+                    <ng-container *ngIf="(totalResults$ | async) !== null; else placeholders">
+                        <vsf-product-card *ngFor="let product of products$ | async; trackBy: trackByProductId"
+                                          [product]="product"></vsf-product-card>
+                    </ng-container>
+                    <ng-template #placeholders>
+                        <vsf-product-card *ngFor="let product of placeholderProducts"
+                                          [product]="product"></vsf-product-card>
+                    </ng-template>
+
+                    <div class="load-more flex-fill" *ngIf="displayLoadMore$ | async">
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-template #noResults>
+    <div class="page-not-found-main"><img alt="Coming Soon" src="assets/images/coming-soon.png"><a
+        class="btn btn-secondary" href="/shop/" routerlink="/">Go Home</a></div>
+</ng-template>
+

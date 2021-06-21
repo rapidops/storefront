@@ -1,0 +1,12 @@
+.section-noproduct{margin-bottom: 15px;}
+.page-not-found-page{border-radius: 3px;  background-color: #FFFFFF; padding:60px 20px 60px 20px; margin: 30px 0 50px 0;}
+.page-not-found-main{text-align: center; width:530px; margin: 0 auto; }
+.page-not-found-main h2{display: block; margin-bottom: 10px; margin-top: 10px; 	color: #282C3F;	font-family: 'Rubik', sans-serif;;	font-size: 40px;	font-weight: bold;	line-height: 47px;	text-align: center;}
+.page-not-found-main span{display: block; color: #696B79; font-size: 13px;	line-height: 15px;	text-align: center;}
+.page-not-found-main .btn{ margin-top: 30px;}
+
+
+@media screen and (max-width:767px) {
+    .page-not-found-main {width: 100%;}
+}
+

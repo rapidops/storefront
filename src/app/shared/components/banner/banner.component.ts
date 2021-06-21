@@ -92,6 +92,7 @@ export class BannerComponent implements OnInit, OnDestroy {
             const campaignName = $(slick.$slides[currentSlide]).children().attr('data-campaign-name');
             const bannerAltText = $(slick.$slides[currentSlide]).children().attr('alt');
           }
+          this.changeRef.detectChanges();
         }, 1000);
 
       });

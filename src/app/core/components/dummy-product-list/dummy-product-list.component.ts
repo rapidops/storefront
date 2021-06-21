@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {DomSanitizer, SafeStyle, Title} from '@angular/platform-browser';
+import {Component, Input, OnInit} from '@angular/core';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 import { BehaviorSubject, combineLatest, merge, Observable, of } from 'rxjs';
@@ -24,14 +24,15 @@ import { AssetPreviewPipe } from '../../../shared/pipes/asset-preview.pipe';
 import { DataService } from '../../providers/data/data.service';
 import { StateService } from '../../providers/state/state.service';
 
-import { GET_COLLECTION, SEARCH_PRODUCTS } from './product-list.graphql';
+import { GET_COLLECTION, SEARCH_PRODUCTS } from './dummy-product-list.graphql';
 
 @Component({
     selector: 'vsf-product-list',
-    templateUrl: './product-list.component.html',
-styleUrls: ['./product-list.component.scss'],
+    templateUrl: './dummy-product-list.component.html',
+styleUrls: ['./dummy-product-list.component.scss'],
     })
-export class ProductListComponent implements OnInit {
+export class DummyProductListComponent implements OnInit {
+    @Input() id: string;
     products$: Observable<SearchProducts.Items[]>;
     totalResults$: Observable<number>;
     collection$: Observable<GetCollection.Collection | undefined>;
@@ -45,19 +46,30 @@ export class ProductListComponent implements OnInit {
     mastheadBackground$: Observable<SafeStyle>;
     private currentPage = 0;
     private refresh = new BehaviorSubject<void>(undefined);
+    private campaignKeyValue = [{campaignId:'5d1e076c2ff1dc167de67565', collectionId:'2' , name:'Electronics Sale Fest'},{campaignId: '60c8a88b99c2b53f064f97c6', collectionId: '19', name:'Save Big on Footwear Products'},{
+        campaignId: '60c899991130213aa0fc5083', collectionId:  '6', name: 'Super Furniture Sale'}];
+    private collectionId : any;
+    campaignName: string;
     readonly placeholderProducts = Array.from({ length: 12 }).map(() => null);
-    categoryTitle: string;
-    totalProducts: any;
 
     constructor(private dataService: DataService,
                 private route: ActivatedRoute,
                 private stateService: StateService,
-                private sanitizer: DomSanitizer,
-                private titleService: Title) { }
+                private sanitizer: DomSanitizer) { }
 
     ngOnInit() {
+        console.log(this.id);
+        const perPage = 3;
+        const campaignObj: any = _.find(this.campaignKeyValue, {campaignId: this.id});
+        // TODO need to set campaign id and name before demo
+        if(!campaignObj) {
+             this.collectionId = '19';
+            this.campaignName = 'test';
+        } else {
+            this.collectionId = campaignObj.collectionId;
+            this.campaignName = campaignObj.name;
+        }
 
-        const perPage = 10;
         const collectionSlug$ = this.route.paramMap.pipe(
             map(pm => pm.get('slug')),
             distinctUntilChanged(),
@@ -67,6 +79,7 @@ export class ProductListComponent implements OnInit {
             }),
             shareReplay(1),
         );
+
         this.activeFacetValueIds$ = this.route.paramMap.pipe(
             map(pm => getRouteArrayParam(pm, 'facets')),
             distinctUntilChanged((x, y) => x.toString() === y.toString()),
@@ -80,8 +93,7 @@ export class ProductListComponent implements OnInit {
             distinctUntilChanged(),
             shareReplay(1),
         );
-
-        this.collection$ = collectionSlug$.pipe(
+      this.collection$ = collectionSlug$.pipe(
             switchMap(slug => {
                 if (slug) {
                     return this.dataService.query<GetCollection.Query, GetCollection.Variables>(GET_COLLECTION, {
@@ -96,6 +108,7 @@ export class ProductListComponent implements OnInit {
             shareReplay(1),
         );
 
+
         const assetPreviewPipe = new AssetPreviewPipe();
 
         this.mastheadBackground$ = this.collection$.pipe(
@@ -106,10 +119,8 @@ export class ProductListComponent implements OnInit {
         this.breadcrumbs$ = this.collection$.pipe(
             map(collection => {
                 if (collection) {
-                    this.setTitle(collection.breadcrumbs);
                     return collection.breadcrumbs;
                 } else {
-                    this.setTitle([]);
                     return [{
                         id: '',
                         name: 'Home',
@@ -150,7 +161,7 @@ export class ProductListComponent implements OnInit {
                     input: {
                         term,
                         groupByProduct: true,
-                        collectionId: collection?.id,
+                        collectionId: this.collectionId,
                         facetValueIds,
                         take: perPage,
                         skip: this.currentPage * perPage,
@@ -193,9 +204,9 @@ export class ProductListComponent implements OnInit {
             }, [] as SearchProducts.Items[]),
         );
         this.totalResults$ = queryResult$.pipe(map(data => data.search.totalItems));
+
         this.displayLoadMore$ = combineLatest(this.products$, this.totalResults$).pipe(
             map(([products, totalResults]) => {
-                this.totalProducts = totalResults;
                 return 0 < products.length && products.length < totalResults;
             }),
         );
@@ -212,18 +223,11 @@ export class ProductListComponent implements OnInit {
     }
 
 
-    setTitle(breadcrumbs: any) {
-        if(breadcrumbs && breadcrumbs.length) { // set page title
-             const lastCollection: any = _.last(breadcrumbs);
-             this.categoryTitle = lastCollection.name;
-             this.titleService.setTitle(this.categoryTitle);
-        } else {
-            this.searchTerm$.subscribe((str)=> {
-                this.categoryTitle = `Search Results: ${str}` ;
-                this.titleService.setTitle(this.categoryTitle);
-            });
-
-        }
-    }
-
+     getData(slug:any) {
+         return this.dataService.query<GetCollection.Query, GetCollection.Variables>(GET_COLLECTION, {
+             slug,
+         }).pipe(
+             map(data => data.collection),
+         );
+     }
 }

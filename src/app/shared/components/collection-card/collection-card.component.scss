@@ -3,12 +3,13 @@
 :host {
     display: block;
     position: relative;
-    padding: $spacer / 2 $spacer;
+    //padding: $spacer / 2 $spacer;
     overflow: hidden;
-    margin: $spacer;
+    //margin: $spacer;
 }
 
 .card-background {
+    display: none;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -34,10 +35,11 @@ a:hover {
 }
 
 .collection-name {
-    z-index: 1;
-    position: relative;
-    text-decoration: none;
-    color: #596e84;
-    mix-blend-mode: darken;
-    text-shadow: 0px 0px 15px $light;
+    //z-index: 1;
+    //position: relative;
+    //text-decoration: none;
+    //color: #596e84;
+    //mix-blend-mode: darken;
+    //text-shadow: 0px 0px 15px $light;
+    padding: 5px 20px; color: #282C3F;	font-size: 16px;	line-height: 36px; display: block;
 }

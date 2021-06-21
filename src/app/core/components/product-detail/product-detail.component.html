@@ -9,23 +9,25 @@
                 <vsf-asset-gallery [assets]="product.assets"
                                    [selectedAssetId]="product.featuredAsset?.id"></vsf-asset-gallery>
             </div>
-            <div class="col-12 col-md-6" #zoomPreviewArea>
-                <h2 class="display-4 product-name">{{ product.name }}</h2>
+            <div class="col-12 col-md-6 product-text" #zoomPreviewArea>
+                <h1>{{ product.name }}</h1>
+                <span class="sku-info"><strong>SKU:</strong>  {{ selectedVariant?.sku }}</span>
                 <div class="purchase-options">
-                    <div class="variant-selector" *ngIf="product.variants.length > 1">
-                        <select [(ngModel)]="selectedVariant" class="form-control">
-                            <option *ngFor="let variant of product.variants"
-                                    [ngValue]="variant">{{ variant.name }}</option>
-                        </select>
-                    </div>
                     <div class="add-to-cart-row">
-                        <div class="sku">
-                            {{ selectedVariant?.sku }}
-                        </div>
-                        <div class="price">
+<!--                        <div class="sku">-->
+<!--                            {{ selectedVariant?.sku }}-->
+<!--                        </div>-->
+                        <div class="product-price price mb-3">
                             {{ selectedVariant?.priceWithTax | formatPrice }}
                         </div>
-                        <div class="qty mr-md-2 ml-2">
+                        <div class="addtocart-row-main">
+                        <div class="variant-selector" *ngIf="product.variants.length > 1">
+                            <select [(ngModel)]="selectedVariant" class="form-control">
+                                <option *ngFor="let variant of product.variants"
+                                        [ngValue]="variant">{{ variant.name }}</option>
+                            </select>
+                        </div>
+                        <div class="qty mb-3">
                             <input type="number" min="0" max="99" placeholder="Qty" [(ngModel)]="qty"
                                    class="form-control form-control-lg">
                         </div>
@@ -33,6 +35,7 @@
                                 class="btn btn-primary btn-lg"
                                 (click)="addToCart(selectedVariant, qty)">Add to cart
                         </button>
+                        </div>
                     </div>
                 </div>
                 <div class="description" [innerHTML]="product.description">
@@ -54,6 +57,23 @@
             </div>
         </div>
     </ng-template>
+    <div class="three-col-text">
+        <div class="col-text">
+            <h5>Complimentary Shipping &amp; Returns</h5>
+            <p>Purchases made online can be returned or exchanged within 30 days; plus shipping is on us.</p>
+            <a href="">Learn More</a>
+        </div>
+        <div class="col-text">
+            <h5>Drop a Hint</h5>
+            <p>Let us tell someone special what you’re wishing for.</p>
+            <a href="">Drop a Hint</a>
+        </div>
+        <div class="col-text">
+            <h5>Size Guide</h5>
+            <p>Determine your bracelet, necklace or ring size.</p>
+            <a href="">Size Guide</a>
+        </div>
+    </div>
 </div>
 
 <ng-template #addedToCartTemplate let-variant="variant" let-quantity="quantity" let-close="closeFn">

@@ -1,11 +1,4 @@
 <div class="product-image">
-    <div class="main-image">
-        <img *ngIf="selectedAsset" [src]="selectedAsset | assetPreview:540"
-             #mainPreview
-             class="img-fluid main-preview"
-             height="500"
-             (click)="openImage(selectedAsset.id)">
-    </div>
     <div class="alt-images" *ngIf="1 < assets.length">
         <div *ngFor="let asset of assets"
              class="alt-image"
@@ -13,6 +6,13 @@
              (click)="selectImage(asset.id)">
             <img [src]="asset | assetPreview:'tiny'">
         </div>
+    </div>
+    <div class="main-image">
+        <img *ngIf="selectedAsset" [src]="selectedAsset | assetPreview:540"
+             #mainPreview
+             class="img-fluid main-preview"
+             height="500"
+             (click)="openImage(selectedAsset.id)">
     </div>
 </div>
 

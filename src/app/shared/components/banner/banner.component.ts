@@ -47,10 +47,10 @@ export class BannerComponent implements OnInit, OnDestroy {
     e.preventDefault();
     if (banner.ActionType === 'campaign') {
       if (banner.IsNewPageTarget) {
-        const url = `/shop/store/${this.storeId}/campaign/${banner.SelectedCampaignPage.PermaLink}`;
+        const url = `/shop/store/ds/product-list/${banner.SelectedCampaignPage.PermaLink}`;
         window.open(url, '_blank');
       } else {
-        this.router.navigate(['store', this.storeId, 'campaign', banner.SelectedCampaignPage.PermaLink]);
+        this.router.navigate(['shop','store', 'ds', 'product-list', banner.SelectedCampaignPage.PermaLink]);
       }
     } else if (banner.ActionType === 'url') {
       if (banner.BannerImageLink[0] !== '/' && banner.BannerImageLink.indexOf('http') !== 0) {

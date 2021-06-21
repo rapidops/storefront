@@ -51,6 +51,7 @@ export class CampaignProductsComponent implements OnInit {
         campaignId: '60c899991130213aa0fc5083', collectionId:  '6', name: 'Super Furniture Sale', permalink:'super-furniture-sale'}];
     private collectionId : any;
     campaignName: string;
+    totalProducts: any;
     private campaignPermaLink: string;
     readonly placeholderProducts = Array.from({ length: 12 }).map(() => null);
 
@@ -126,13 +127,19 @@ export class CampaignProductsComponent implements OnInit {
                 if (collection) {
                     return collection.breadcrumbs;
                 } else {
-                    return [{
-                        id: '',
-                        name: 'Home',
-                    }, {
-                        id: '',
-                        name: 'Search',
-                    }];
+                    // return [{
+                    //     id: '',
+                    //     name: 'Home',
+                    // }, {
+                    //     id: '',
+                    //     name: this.campaignName,
+                    // }];
+                    const defaultBredcrumbs = [];
+                    defaultBredcrumbs.push({id: '', name:'Home'});
+                    if(this.campaignName) {
+                        defaultBredcrumbs.push({id:'', name:this.campaignName});
+                    }
+                    return  defaultBredcrumbs;
                 }
             }),
         );
@@ -212,6 +219,7 @@ export class CampaignProductsComponent implements OnInit {
 
         this.displayLoadMore$ = combineLatest(this.products$, this.totalResults$).pipe(
             map(([products, totalResults]) => {
+                this.totalProducts = totalResults;
                 return 0 < products.length && products.length < totalResults;
             }),
         );

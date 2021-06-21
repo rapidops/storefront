@@ -1,7 +1,12 @@
+<div class="masthead" [class.search-mode]="searchTerm$ | async">
+    <div class="container position-relative">
+        <vsf-collection-breadcrumbs [breadcrumbs]="breadcrumbs$ | async"></vsf-collection-breadcrumbs>
+    </div>
+</div>
 <div class="container m-t-lg">
     <div class="row">
         <div class="col-12 col-md-12 smart-filter">
-            <h2 *ngIf="campaignName">{{ campaignName }}</h2>
+            <h2 *ngIf="campaignName">{{ campaignName }} ({{totalProducts}})</h2>
             <ng-container *ngIf="(totalResults$ | async) !== 0; else noResults">
                 <div class="product-list">
                     <ng-container *ngIf="(totalResults$ | async) !== null; else placeholders">
@@ -22,7 +27,13 @@
 </div>
 
 <ng-template #noResults>
-    <div class="page-not-found-main"><img alt="Coming Soon" src="assets/images/coming-soon.png"><a
-        class="btn btn-secondary" href="/shop/" routerlink="/">Go Home</a></div>
+<!--    <div class="page-not-found-main"><img alt="Coming Soon" src="assets/images/coming-soon.png"><a-->
+<!--        class="btn btn-secondary" href="/shop/" routerlink="/">Go Home</a></div>-->
+        <div class="section-products section-noproduct" >
+            <div class="section-noproduct-inner">
+                <img src="assets/images/no_product.png" alt="no product">
+                <span>No Products Found</span>
+            </div>
+        </div>
 </ng-template>
 

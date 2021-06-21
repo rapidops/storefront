@@ -18,16 +18,16 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <span><a href="javascript:void(0);" [routerLink]="['/','store', storeId]">Shop Home</a></span>
+          <span><a href="javascript:void(0);" [routerLink]="['/']">Shop Home</a></span>
         </li>
         <li class="breadcrumb-item" [ngClass]="{'active': !selectedCampaign.id}">
           <span *ngIf="selectedCampaign.id"><a href="javascript:void(0);"
           (click)="redirect()">{{pageName}}</a></span>
           <span *ngIf="!selectedCampaign.id">{{pageName}}</span>
         </li>
-        <li class="breadcrumb-item active" *ngIf="selectedCampaign.id" >
-          <span>{{selectedCampaign.name }}</span>
-        </li>
+<!--        <li class="breadcrumb-item active" *ngIf="selectedCampaign.id" >-->
+<!--          <span>{{selectedCampaign.name }}</span>-->
+<!--        </li>-->
       </ol>
     </nav>
 

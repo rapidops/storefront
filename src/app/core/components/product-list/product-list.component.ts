@@ -112,10 +112,10 @@ export class ProductListComponent implements OnInit {
                     this.setTitle([]);
                     return [{
                         id: '',
-                        name: 'Home',
+                        name: 'Shop Home',
                     }, {
                         id: '',
-                        name: 'Search',
+                        name: 'Search Results',
                     }];
                 }
             }),

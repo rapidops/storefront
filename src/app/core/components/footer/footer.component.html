@@ -35,22 +35,51 @@
       </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="footer-text">
-        <p></p>
-        <p>
-          <span *ngIf="footerTextExpanded"></span>
-          <a href="javascript:void(0)"><span *ngIf="!footerTextExpanded" (click)="this.footerTextExpanded = true">(Show More)</span>
-            <span *ngIf="footerTextExpanded" (click)="this.footerTextExpanded = false"> (Show Less)</span>
-          </a>
-        </p>
-      </div>
-      <div class="copyright-text">
-        <p> Copyright 2021 RapidOps Inc. All Rights Reserved.v1.67.0</p>
-      </div>
-      <div class="toparrow"><a title="Goto top" class="top-link-icon btn-top-link" href="javascript:void(0)" (click)="goToTop()">Goto
-        Top</a></div>
+<!--  <div class="footer-bottom">-->
+<!--    <div class="container">-->
+<!--      <div class="footer-text">-->
+<!--        <p></p>-->
+<!--        <p>-->
+<!--          <span *ngIf="footerTextExpanded"></span>-->
+<!--          <a href="javascript:void(0)"><span *ngIf="!footerTextExpanded" (click)="this.footerTextExpanded = true">(Show More)</span>-->
+<!--            <span *ngIf="footerTextExpanded" (click)="this.footerTextExpanded = false"> (Show Less)</span>-->
+<!--          </a>-->
+<!--        </p>-->
+<!--      </div>-->
+<!--      <div class="copyright-text">-->
+<!--          <p>Copyright 2021 RapidShop, LLC. All Rights Reserved.v1.0.0</p>-->
+<!--      </div>-->
+<!--      <div class="toparrow"><a title="Goto top" class="top-link-icon btn-top-link" href="javascript:void(0)" (click)="goToTop()">Goto-->
+<!--        Top</a></div>-->
+<!--    </div>-->
+<!--  </div>-->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="footer-text">
+                <p>To save time, RapidRetail offers a quick and efficient online shopping service called Rapidshop.
+                    Shop from thousands of items available at your local RapidRetail using our website or mobile app to begin your
+                    order.
+                    Once your order is placed, your local store’s team of Personal Shoppers will shop and prepare your order for
+                    pickup or delivery at your selected time.</p>
+                <p>
+          <span *ngIf="footerTextExpanded">Shop Rapidshop online or through our mobile app when it is convenient for you.
+            Select your local RapidRetail, build your shopping cart and choose a pickup or delivery time that is convenient for you.
+            We’ll have your order ready for pickup or deliver it right to your doorstep.
+            If you are a first-time Rapidshop shopper, the $4.95 shopping fee will be waived.
+            Once your order is ready, your Personal Shopper will call and notify you. </span>
+                    <a href="javascript:void(0)" tabindex="-1"><span *ngIf="!footerTextExpanded" class="show-link"
+                                                                     (click)="this.footerTextExpanded = true">(Show More)</span>
+                        <span *ngIf="footerTextExpanded" class="show-link"
+                              (click)="this.footerTextExpanded = false">(Show Less)</span>
+                    </a>
+                </p>
+            </div>
+            <div class="copyright-text">
+                <p> Copyright 2021 RapidRetail, LLC. All Rights Reserved.v1.0.0</p>
+            </div>
+            <div class="toparrow"><a title="Goto top" class="top-link-icon btn-top-link" href="javascript:void(0)"
+                                     (click)="goToTop()">Goto
+                Top</a></div>
+        </div>
     </div>
-  </div>
 </footer>

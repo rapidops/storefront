@@ -48,7 +48,7 @@
 }
 
 
-.progress-main { width: 686px; margin: 0 auto 50px; }
+.progress-main { width: 100%; margin: 0 auto 50px; }
 .progress {
     height: 3px;
     background-color: #dbdbdb;
@@ -89,11 +89,11 @@
 }
 
 .progress-main .progress-bar-circle.active:before,
-.progress-main .progress-bar-circle.current:before {    
+.progress-main .progress-bar-circle.current:before {
     background-color: #00b86b;
 }
 
-.progress-main .progress-bar-circle.active:after {    
+.progress-main .progress-bar-circle.active:after {
     content: "";
     display: inline-block;
     transform: rotate(45deg);
@@ -115,4 +115,22 @@
     text-align: center;
     display: block;
     text-transform: uppercase;
+}
+
+@media screen and (max-width: 1023px) {
+    .progress {
+        margin: 0 55px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .progress {
+        margin: 0 80px;
+    }
+}
+
+@media screen and (max-width:666px) {
+    .progress {
+        margin: 0 50px;
+    }
 }

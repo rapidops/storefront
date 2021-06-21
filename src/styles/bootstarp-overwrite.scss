@@ -1,5 +1,5 @@
 /*  Common Css Starts */
-.card { border:none; }  
+.card { border:none; }
 .card-footer { background-color: transparent; }
 
 
@@ -18,7 +18,7 @@ a, a:hover {
 }
 
 .font-weight-medium { font-weight: 500; }
-
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: 'Rubik', sans-serif; font-weight: 400;}
 .h1, h1 {
     font-size: 1.625rem; /*26px*/
     font-weight: 500;
@@ -35,7 +35,7 @@ a, a:hover {
 
 .h4, h4 {
     font-size: 1.125rem;/*18px*/
-    font-weight: 500;    
+    font-weight: 500;
 }
 
 .h5, h5 {
@@ -101,7 +101,7 @@ a, a:hover {
 /*  Common Css Ends */
 
 .totals span:first-child,
-.shipping-price span:first-child { font-weight: 500; }  
+.shipping-price span:first-child { font-weight: 500; }
 .summaryShipppingAddress {
     .card-body {
         padding-left: 0;

@@ -11,7 +11,7 @@
     </div>
     <div class="filters-wrapper"
          [class.expanded]="filtersExpanded">
-        <div *ngFor="let facet of facets; trackBy:trackById" class="ml-md-3 facet-group"
+        <div *ngFor="let facet of facets; trackBy:trackById" class="facet-group"
              [class.enabled]="activeFacetValueIds.length">
             <h6>{{ facet.name | titlecase }}</h6>
             <ul class="list-unstyled">

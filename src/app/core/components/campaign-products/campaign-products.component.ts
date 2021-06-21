@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import {DomSanitizer, SafeStyle, Title} from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
 import { BehaviorSubject, combineLatest, merge, Observable, of } from 'rxjs';
@@ -58,7 +58,8 @@ export class CampaignProductsComponent implements OnInit {
     constructor(private dataService: DataService,
                 private route: ActivatedRoute,
                 private stateService: StateService,
-                private sanitizer: DomSanitizer) { }
+                private sanitizer: DomSanitizer,
+                private titleService: Title) { }
 
     ngOnInit() {
         const perPage = 24;
@@ -69,11 +70,11 @@ export class CampaignProductsComponent implements OnInit {
         const campaignObj: any = _.find(this.campaignKeyValue, {permalink: this.campaignPermaLink});
         // TODO need to set campaign id and permalink before demo
         if(!campaignObj) {
-            this.collectionId = '1282918';
-            // this.campaignName = 'test';
+            this.collectionId = '1282918'; // for display no products found
         } else {
             this.collectionId = campaignObj.collectionId;
             this.campaignName = campaignObj.name;
+            this.titleService.setTitle(`Product List : ${this.campaignName}`);
         }
 
         const collectionSlug$ = this.route.paramMap.pipe(

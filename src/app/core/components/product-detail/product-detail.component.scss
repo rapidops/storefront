@@ -64,6 +64,9 @@
 
 .variant-selector {
     margin-bottom: $spacer / 2;
+    .form-control{
+        width: auto;
+    }
 }
 
 .sku {

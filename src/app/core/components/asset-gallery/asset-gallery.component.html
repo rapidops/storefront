@@ -1,4 +1,12 @@
 <div class="product-image">
+    <div class="alt-images" *ngIf="1 < assets.length">
+        <div *ngFor="let asset of assets"
+             class="alt-image"
+             [class.selected]="selectedAsset.id === asset.id"
+             (click)="selectImage(asset.id)">
+            <img [src]="asset | assetPreview:'tiny'">
+        </div>
+    </div>
     <div class="main-image">
         <img *ngIf="selectedAsset && selectedAsset.type==='IMAGE'" [src]="selectedAsset | assetPreview:540"
              #mainPreview
@@ -9,15 +17,6 @@
         <video width="400"  autoplay controls *ngIf="selectedAsset && selectedAsset.type==='VIDEO' && selectedAsset.source">
             <source [src]="selectedAsset.source" type="video/mp4">
         </video>
-
-    </div>
-    <div class="alt-images" *ngIf="1 < assets.length">
-        <div *ngFor="let asset of assets"
-             class="alt-image"
-             [class.selected]="selectedAsset.id === asset.id"
-             (click)="selectImage(asset.id)">
-            <img [src]="asset | assetPreview:'tiny'">
-        </div>
     </div>
 </div>
 

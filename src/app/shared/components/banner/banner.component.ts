@@ -1,6 +1,6 @@
 import {isPlatformBrowser} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
-import {Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
+import {ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, PLATFORM_ID} from '@angular/core';
 import {Router} from '@angular/router';
 import * as _ from 'lodash';
 declare var $: any;
@@ -18,7 +18,8 @@ export class BannerComponent implements OnInit, OnDestroy {
   isSliderApplied: boolean = false;
   constructor(@Inject(PLATFORM_ID) private _platformId: Object,
               private router: Router,
-              private httpClient: HttpClient
+              private httpClient: HttpClient,
+              private changeRef: ChangeDetectorRef,
   ) {
   }
 
@@ -27,22 +28,15 @@ export class BannerComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.isSliderApplied = false;
+    // this.isSliderApplied = false;
   }
-
-  // getBanners() {
-  //   this.getBannersFromAdmin(this.storeId).subscribe((response: any) => {
-  //     this.allBanners = response.Data;
-  //     this.setBanners();
-  //   }, (err) => {
-  //     // TODO handle error
-  //   });
-  // }
 
     getBanners(storeId: any) {
         this.httpClient.get(`https://storefront-dev.rapidretail.io/api/banners?storeNumber=${storeId}`).subscribe((response: any) => {
             this.allBanners = response.Data;
+            console.log(this.allBanners);
             this.setBanners();
+            this.changeRef.detectChanges();
         }, (err) => {
             // TODO handle error
             console.log('Error', err);
@@ -76,6 +70,7 @@ export class BannerComponent implements OnInit, OnDestroy {
     });
     if (this.banners.length > 1) {
         this.applySlider();
+        this.changeRef.detectChanges();
     }
   }
 

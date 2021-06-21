@@ -13,16 +13,6 @@
                                 <div class="login-widget-main">
                                     <span class="close"></span>
                                 </div>
-                                <ul class="nav" *ngIf="collectionTree$ | async as tree">
-                                    <li class="nav-item" *ngFor="let collection of tree.children"
-                                        (mouseenter)="onMouseEnter(collection)"
-                                        (mouseleave)="close($event)">
-                                        <a class="nav-link"
-                                           [class.active]="(setActiveCollection$ | async)?.id === collection.id && overlayIsOpen$ | async"
-                                           (touchstart)="onTopLevelClick($event, collection)"
-                                           [routerLink]="['/category', collection.slug ]">{{ collection.name }}</a>
-                                    </li>
-                                </ul>
                                 <div class="collapse" id="my-lists">
                                     <div class="my-lists-link-menu" href="javascript:void(0);">
                                         <div class="dropdown-item">
@@ -35,23 +25,33 @@
                                 </div>
                             </div>
                             <div class="section-withborder">
-                                <h5 class="menutitle"><a href="javascript:void(0)" class="browse-by-category-title-link">Browse by Category</a><a href="javascript:void(0)" class="arrow-icon"  aria-label="Close Browse by Category menu"></a></h5>
-                                <ul class="menu-nav sf-menu">
-                                    <!--TODO need to add skeleton loader instead of this loader-->
-                                    <div class="mobile-categoryList">
-                                    </div>
+                                <h5 class="menutitle"><a href="javascript:void(0)" class="browse-by-category-title-link">Browse by Category</a><a href="javascript:void(0)" class="arrow-icon close"  aria-label="Close Browse by Category menu"></a></h5>
+<!--                                <ul class="menu-nav sf-menu">-->
+<!--                                    &lt;!&ndash;TODO need to add skeleton loader instead of this loader&ndash;&gt;-->
+<!--                                    <div class="mobile-categoryList">-->
+<!--                                    </div>-->
+<!--                                </ul>-->
+                                <ul class="nav menu-nav sf-menu" *ngIf="collectionTree$ | async as tree">
+                                    <li class="nav-item" *ngFor="let collection of tree.children"
+                                        (mouseenter)="onMouseEnter(collection)"
+                                        (mouseleave)="close($event)">
+                                        <a class="nav-link"
+                                           [class.active]="(setActiveCollection$ | async)?.id === collection.id && overlayIsOpen$ | async"
+                                           (touchstart)="onTopLevelClick($event, collection)"
+                                           [routerLink]="['/category', collection.slug ]">{{ collection.name }}</a>
+                                    </li>
                                 </ul>
                             </div>
-                            <div class="for-mobile">
-                                <div class="mobile-link">
-                                    <a href="javascript:void(0)" class="recipes-link">Recipes</a>
-                                    <a href="javascript:void(0)">My Last Order</a>
-                                    <a href="javascript:void(0)">Manage Online Orders</a>
-                                    <a href="javascript:void(0)">Edit Account</a>
-                                    <a href="" target="_self">Help</a>
-                                    <a href="javascript:void(0)">Sign Out</a>
-                                </div>
-                            </div>
+<!--                            <div class="for-mobile">-->
+<!--                                <div class="mobile-link">-->
+<!--                                    <a href="javascript:void(0)" class="recipes-link">Recipes</a>-->
+<!--                                    <a href="javascript:void(0)">My Last Order</a>-->
+<!--                                    <a href="javascript:void(0)">Manage Online Orders</a>-->
+<!--                                    <a href="javascript:void(0)">Edit Account</a>-->
+<!--                                    <a href="" target="_self">Help</a>-->
+<!--                                    <a href="javascript:void(0)">Sign Out</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
                         </div>
                     </div>
 

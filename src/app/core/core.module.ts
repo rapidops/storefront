@@ -30,7 +30,6 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ProductListControlsComponent } from './components/product-list-controls/product-list-controls.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductSearchBarComponent } from './components/product-search-bar/product-search-bar.component';
-import {BannerComponent} from './components/banner/banner.component';
 import { buildIconLibrary } from './icon-library';
 import { DefaultInterceptor } from './providers/data/interceptor';
 
@@ -51,8 +50,7 @@ const CORE_COMPONENTS = [
     CollectionBreadcrumbsComponent,
     ProductListControlsComponent,
     ProductSearchBarComponent,
-    AssetGalleryComponent,
-    BannerComponent
+    AssetGalleryComponent
 ];
 
 let apolloCache: InMemoryCache;

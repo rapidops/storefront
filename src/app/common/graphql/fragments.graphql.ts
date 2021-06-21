@@ -8,6 +8,8 @@ export const ASSET_FRAGMENT = gql`
         height
         name
         preview
+        source
+        type
         focalPoint {
             x
             y

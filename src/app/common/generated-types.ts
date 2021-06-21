@@ -624,18 +624,18 @@ export type Mutation = {
   refreshCustomerVerification: RefreshCustomerVerificationResult;
   /**
    * Register a Customer account with the given credentials. There are three possible registration flows:
-   * 
+   *
    * _If `authOptions.requireVerification` is set to `true`:_
-   * 
+   *
    * 1. **The Customer is registered _with_ a password**. A verificationToken will be created (and typically emailed to the Customer). That
    * verificationToken would then be passed to the `verifyCustomerAccount` mutation _without_ a password. The Customer is then
    * verified and authenticated in one step.
    * 2. **The Customer is registered _without_ a password**. A verificationToken will be created (and typically emailed to the Customer). That
    * verificationToken would then be passed to the `verifyCustomerAccount` mutation _with_ the chosed password of the Customer. The Customer is then
    * verified and authenticated in one step.
-   * 
+   *
    * _If `authOptions.requireVerification` is set to `false`:_
-   * 
+   *
    * 3. The Customer _must_ be registered _with_ a password. No further action is needed - the Customer is able to authenticate immediately.
    */
   registerCustomerAccount: RegisterCustomerAccountResult;
@@ -681,7 +681,7 @@ export type Mutation = {
   updateCustomerPassword: UpdateCustomerPasswordResult;
   /**
    * Verify a Customer email address with the token sent to that address. Only applicable if `authOptions.requireVerification` is set to true.
-   * 
+   *
    * If the Customer was not registered with a password in the `registerCustomerAccount` mutation, the a password _must_ be
    * provided here.
    */
@@ -950,7 +950,7 @@ export type OrderItem = Node & {
   createdAt: Scalars['DateTime'];
   /**
    * The price of a single unit including discounts, excluding tax.
-   * 
+   *
    * If Order-level discounts have been applied, this will not be the
    * actual taxable unit price (see `proratedUnitPrice`), but is generally the
    * correct price to display to customers to avoid confusion
@@ -1002,7 +1002,7 @@ export type OrderLine = Node & {
   discountedLinePriceWithTax: Scalars['Int'];
   /**
    * The price of a single unit including discounts, excluding tax.
-   * 
+   *
    * If Order-level discounts have been applied, this will not be the
    * actual taxable unit price (see `proratedUnitPrice`), but is generally the
    * correct price to display to customers to avoid confusion
@@ -1694,7 +1694,7 @@ export enum AssetType {
 /**
  * @description
  * ISO 4217 currency code
- * 
+ *
  * @docsCategory common
  */
 export enum CurrencyCode {
@@ -2091,7 +2091,7 @@ export enum HistoryEntryType {
  * region or script modifier (e.g. de_AT). The selection available is based
  * on the [Unicode CLDR summary list](https://unicode-org.github.io/cldr-staging/charts/37/summary/root.html)
  * and includes the major spoken languages of the world and any widely-used variants.
- * 
+ *
  * @docsCategory common
  */
 export enum LanguageCode {
@@ -2420,7 +2420,7 @@ export enum LogicalOperator {
  * @description
  * Permissions for administrators and customers. Used to control access to
  * GraphQL resolvers via the {@link Allow} decorator.
- * 
+ *
  * @docsCategory common
  */
 export enum Permission {
@@ -3641,7 +3641,7 @@ export type GetCollectionsQuery = (
 
 export type AssetFragment = (
   { __typename?: 'Asset' }
-  & Pick<Asset, 'id' | 'width' | 'height' | 'name' | 'preview'>
+  & Pick<Asset, 'id' | 'width' | 'height' | 'name' | 'preview'| 'source'| 'type'>
   & { focalPoint?: Maybe<(
     { __typename?: 'Coordinate' }
     & Pick<Coordinate, 'x' | 'y'>

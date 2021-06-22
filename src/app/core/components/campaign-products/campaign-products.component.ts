@@ -46,9 +46,9 @@ export class CampaignProductsComponent implements OnInit {
     mastheadBackground$: Observable<SafeStyle>;
     private currentPage = 0;
     private refresh = new BehaviorSubject<void>(undefined);
-    private campaignKeyValue = [{campaignId:'5d1e076c2ff1dc167de67565', collectionId:'2' , name:'Electronics Sale Fest', 'permalink': 'electronics-sale-fest'},
+    private campaignKeyValue = [{campaignId:'60d1c5a199c2b53f064fa002', collectionId:'11' , name:'Save Big on Luxury Watches', 'permalink': 'save-big-on-luxury-watches'},
         {campaignId: '60c8a88b99c2b53f064f97c6', collectionId: '10', name:'Save Big on Footwear Products', permalink: 'save-big-on-footwear-products'},{
-        campaignId: '60c899991130213aa0fc5083', collectionId:  '6', name: 'Super Furniture Sale', permalink:'super-furniture-sale'}];
+        campaignId: '60d1c6b699c2b53f064fa037', collectionId:  '2', name: 'Save 50% on Electronics', permalink:'save-50-on-electronics'}];
     private collectionId : any;
     campaignName: string;
     totalProducts: any;

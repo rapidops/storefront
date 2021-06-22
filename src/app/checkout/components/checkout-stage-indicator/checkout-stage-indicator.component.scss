@@ -54,6 +54,9 @@
     background-color: #dbdbdb;
     position: relative;
     top: 11px;
+    margin: 0 80px;
+}
+.loginProgress .progress {
     margin: 0 103px;
 }
 
@@ -119,18 +122,27 @@
 
 @media screen and (max-width: 1023px) {
     .progress {
+        margin: 0 55px;
+    }
+    .loginProgress .progress {
         margin: 0 70px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .progress {
+        margin: 0 80px;
+    }
+    .loginProgress .progress {
         margin: 0 100px;
     }
 }
 
 @media screen and (max-width:666px) {
     .progress {
+        margin: 0 50px;
+    }
+    .loginProgress .progress {
         margin: 0 65px;
     }
 }

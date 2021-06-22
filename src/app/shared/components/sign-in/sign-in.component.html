@@ -27,15 +27,15 @@
                 type="submit">
             Sign In
         </button>
-        <div class="alert alert-warning invalid-credentials" role="alert"  [class.visible]="invalidCredentials">
+        <div class="alert alert-warning hidden invalid-credentials" role="alert"  [class.d-block]="invalidCredentials">
             Invalid credentials. Please try again.<br>
             <a [routerLink]="['/account/forgotten-password', { email: this.emailAddress }]">I've forgotten my password</a>
         </div>
 
-         <div class="text-center">           
+         <div class="text-center">
           <div *ngIf="displayRegisterLink" class="register-link mb-5">
               <a [routerLink]="['/account/register']">No account? Register here</a>
           </div>
-        </div> 
+        </div>
     </vsf-centered-card>
 </form>

@@ -17,7 +17,7 @@
     margin-bottom: 3px;
 }
 
-.AddressForm  .row { display: block; }
+.AddressForm  .row, .customFrom .row { display: block; }
 .form-control::-webkit-input-placeholder {
     color: #afb4bd;
     font-size: 13px;
@@ -123,6 +123,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: 'Rubik', sans-
     box-shadow: none;
 }
 
+.text-primary {
+    color: #00bd85 !important;
+}
+
 
 /*  Common Css Ends */
 
@@ -136,4 +140,35 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: 'Rubik', sans-
     .card-title {
         text-transform: uppercase;
     }
+}
+
+.loginSidebar .list-group-item { padding-left: 0; padding-right: 0; }
+.loginSidebar .list-group-item.active {
+    color: #ff6944;
+    background: none;
+    border-color:transparent;
+    font-weight: bold;
+    border-bottom: 1px solid #ff6944;
+}
+
+.loginSidebar .list-group-item-action:hover,
+.loginSidebar .list-group-item-action:focus {
+    color: #ff6944;
+    background-color: transparent;
+}
+
+.alert-info {
+    color: #0c5460;
+    background-color: #bef9e7;
+    border-color: #a6ebd6;
+}
+
+
+.modal-content { width: 500px; height: 500px; overflow-y: auto; border:none; }
+.modal-body {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex: 1;
+    overflow: auto;
 }

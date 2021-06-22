@@ -8,11 +8,15 @@
         </div>
     </div>
     <div class="main-image">
-        <img *ngIf="selectedAsset" [src]="selectedAsset | assetPreview:540"
+        <img *ngIf="selectedAsset && selectedAsset.type==='IMAGE'" [src]="selectedAsset | assetPreview:540"
              #mainPreview
              class="img-fluid main-preview"
              height="500"
              (click)="openImage(selectedAsset.id)">
+
+        <video width="400"  autoplay controls *ngIf="selectedAsset && selectedAsset.type==='VIDEO' && selectedAsset.source">
+            <source [src]="selectedAsset.source" type="video/mp4">
+        </video>
     </div>
 </div>
 

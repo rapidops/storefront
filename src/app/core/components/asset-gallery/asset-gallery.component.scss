@@ -44,3 +44,16 @@
         }
     }
 }
+
+
+
+@media screen and (max-width:1519px) {
+    .main-image{width: 470px;}
+}
+@media screen and (max-width:1199px) {
+    .alt-images{margin-right: 20px;}
+    .main-image{width: 385px;}
+}
+@media screen and (max-width:1023px) {
+    .main-image{width: 270px;}
+}

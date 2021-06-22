@@ -37,17 +37,17 @@
                         <vsf-product-card *ngFor="let product of placeholderProducts"
                                           [product]="product"></vsf-product-card>
                     </ng-template>
-                    <div class="load-more flex-fill" *ngIf="displayLoadMore$ | async">
-                        <!--                        <button class="btn btn-light btn-lg d-inline-flex align-items-center"-->
-                        <!--                                (click)="loadMore()"-->
-                        <!--                                [disabled]="loading$ | async">-->
-                        <!--                            Load more-->
-                        <!--                            <span [class.show]="loading$ | async"-->
-                        <!--                                  class="loading-indicator spinner-grow spinner-grow-sm"-->
-                        <!--                                  role="status"-->
-                        <!--                                  aria-hidden="true"></span>-->
-                        <!--                        </button>-->
-                    </div>
+                </div>
+                <div class="load-more flex-fill m-t-md" *ngIf="displayLoadMore$ | async">
+                    <button class="btn btn-secondary btn-lg d-inline-flex align-items-center"
+                            (click)="loadMore()"
+                            [disabled]="loading$ | async">
+                        Load more
+                        <span [class.show]="loading$ | async"
+                              class="loading-indicator spinner-grow spinner-grow-sm"
+                              role="status"
+                              aria-hidden="true"></span>
+                    </button>
                 </div>
             </ng-container>
         </div>

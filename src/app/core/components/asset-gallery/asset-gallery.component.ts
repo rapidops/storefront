@@ -26,7 +26,6 @@ export class AssetGalleryComponent implements OnInit {
     }
 
     selectImage(assetId: string) {
-        debugger;
         if (assetId != null) {
             this.selectedAsset = this.assets.find(a => a.id === assetId);
         } else {

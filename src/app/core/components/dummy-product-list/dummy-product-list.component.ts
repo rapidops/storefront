@@ -46,7 +46,7 @@ export class DummyProductListComponent implements OnInit {
     mastheadBackground$: Observable<SafeStyle>;
     private currentPage = 0;
     private refresh = new BehaviorSubject<void>(undefined);
-    private campaignKeyValue = [{campaignId:'5d1e076c2ff1dc167de67565', collectionId:'2' , name:'Electronics Sale Fest'},{campaignId: '60c8a88b99c2b53f064f97c6', collectionId: '19', name:'Save Big on Footwear Products'},{
+    private campaignKeyValue = [{campaignId:'5d1e076c2ff1dc167de67565', collectionId:'2' , name:'Electronics Sale Fest'},{campaignId: '60c8a88b99c2b53f064f97c6', collectionId: '10', name:'Save Big on Footwear Products'},{
         campaignId: '60c899991130213aa0fc5083', collectionId:  '6', name: 'Super Furniture Sale'}];
     private collectionId : any;
     campaignName: string;

@@ -4,7 +4,8 @@
              class="alt-image"
              [class.selected]="selectedAsset.id === asset.id"
              (click)="selectImage(asset.id)">
-            <img [src]="asset | assetPreview:'tiny'">
+            <img *ngIf="asset && asset.type==='IMAGE'"  [src]="asset | assetPreview:'tiny'">
+            <img *ngIf="asset && asset.type==='VIDEO'" src="assets/images/film-icon.png" alt="">
         </div>
     </div>
     <div class="main-image">
@@ -14,7 +15,7 @@
              height="500"
              (click)="openImage(selectedAsset.id)">
 
-        <video width="400"  autoplay controls *ngIf="selectedAsset && selectedAsset.type==='VIDEO' && selectedAsset.source">
+        <video width="540"  autoplay controls *ngIf="selectedAsset && selectedAsset.type==='VIDEO' && selectedAsset.source">
             <source [src]="selectedAsset.source" type="video/mp4">
         </video>
     </div>

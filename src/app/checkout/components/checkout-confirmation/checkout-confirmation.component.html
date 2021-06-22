@@ -1,6 +1,6 @@
 <div *ngIf="order$ | async as order">
     <div class="text-center mb-4">
-        <h2 class="display-4">Thank you for your order!</h2>
+        <h2 class="display-5 text-uppercase text-primary">Thank you for your order!</h2>
         <ul class="order-details list-unstyled">
             <li class="lead"><span class="text-muted">Order code:</span> {{ order.code }}</li>
             <li class="lead"><span class="text-muted">Placed:</span> {{ order.updatedAt | date: 'medium' }}</li>

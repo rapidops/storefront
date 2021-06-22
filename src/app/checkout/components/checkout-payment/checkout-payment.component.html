@@ -4,7 +4,7 @@
 <ng-container *ngFor="let paymentMethod of paymentMethods$ | async">
     <div class="row">
         <div class="col col-lg-6 offset-lg-3">
-            <h4>Pay with method "{{ paymentMethod.code }}"</h4>
+            <h2 class="text-uppercase">Pay with method "{{ paymentMethod.code }}"</h2>
             <div class="alert alert-info my-4" role="alert">
                 This is an example payment form. Do not use real card details!
             </div>
@@ -41,7 +41,7 @@
             </select>
         </div>
 
-        <button class="btn btn-primary btn-lg"
+        <button class="btn btn-secondary btn-lg"
                 [disabled]="paymentForm.pristine || paymentForm.invalid">Complete order
         </button>
     </form>

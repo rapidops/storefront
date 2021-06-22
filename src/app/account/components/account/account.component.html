@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row">
-        <div class="col-12 col-md-3"
+    <div class="row mb-5">
+        <div class="col-12 col-md-3 loginSidebar"
              *ngIf="isSignedIn$ | async">
             <div class="list-group-flush">
                 <a class="list-group-item list-group-item-action"
@@ -30,7 +30,7 @@
                     Change credentials
                 </a>
                 <a class="list-group-item">
-                    <button class="btn btn-warning btn-sm btn-block" (click)="signOut()">Sign out</button>
+                    <button class="btn btn-secondary btn-sm btn-block" (click)="signOut()">Sign out</button>
                 </a>
             </div>
         </div>

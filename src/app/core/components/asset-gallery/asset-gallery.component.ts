@@ -4,7 +4,7 @@ import * as PhotoSwipeUI_Default from 'photoswipe/dist/photoswipe-ui-default';
 
 import { Asset } from '../../../common/generated-types';
 
-export type AssetWithDimensions = Pick<Asset.Fragment, 'id' | 'preview' | 'width' | 'height'>;
+export type AssetWithDimensions = Pick<Asset.Fragment, 'id' | 'preview' | 'width' | 'height'| 'source'| 'type'>;
 @Component({
     selector: 'vsf-asset-gallery',
     templateUrl: './asset-gallery.component.html',

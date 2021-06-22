@@ -10,6 +10,7 @@
     width: 100%;
 }
 .main-image {
+    display: inline-block;
     min-height: 250px;
     @include media-breakpoint-up(md) {
         min-height: 200px;
@@ -22,12 +23,16 @@
     }
 }
 .alt-images {
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-block;
+    //flex-wrap: wrap;
+    width: 63px;
+    vertical-align: top;
+    margin-right: 30px;
 
     .alt-image {
         cursor: pointer;
         border: 6px solid transparent;
+        display: inline-block;
 
         img {
             min-width: 50px;
@@ -38,4 +43,17 @@
             border-color: #e1e1e1;
         }
     }
+}
+
+
+
+@media screen and (max-width:1519px) {
+    .main-image{width: 470px;}
+}
+@media screen and (max-width:1199px) {
+    .alt-images{margin-right: 20px;}
+    .main-image{width: 385px;}
+}
+@media screen and (max-width:1023px) {
+    .main-image{width: 270px;}
 }

@@ -123,6 +123,28 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{font-family: 'Rubik', sans-
     box-shadow: none;
 }
 
+.btn-primary {
+    background-color: #00bd85;
+    border-color: #00bd85;
+}
+
+.btn-primary:hover {
+    background-color: #03a374;
+    border-color: #03a374;
+}
+
+.btn-outline-primary {
+    color: #00bd85;
+    border-color: #00bd85;
+}
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #00bd85;
+    border-color: #00bd85;
+}
+
+
+
 .text-primary {
     color: #00bd85 !important;
 }
